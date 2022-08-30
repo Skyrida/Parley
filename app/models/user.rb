@@ -11,11 +11,11 @@ class User < ApplicationRecord
   has_many :comment_swipe_users
   has_many :messages
   has_many :reflections
+  acts_as_taggable_on :tags
 
   validates :first_name, presence: true, length: { in: 2..30 }
   validates :last_name, presence: true, length: { in: 2..30 }
   validates :username, presence: true, uniqueness: true, length: { in: 5..30 }, format: { with: /\A[a-zA-Z0-9]+\Z/ }
-  validates :tags
   validates :location, presence: true
   validates :gender, presence: true, inclusion: { in: ["Male", "Female", "Other"] }
 end

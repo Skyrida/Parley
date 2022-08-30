@@ -5,39 +5,83 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-require 'faker'
 
-10.times do
-  user = User.new()
-  user.save
+Argument.destroy_all
+Debate.destroy_all
+User.destroy_all
+
+users = []
+10.times do |i|
+  user = User.new(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    username: "user#{i + 1}",
+    location: "#{Faker::Address.city}, #{Faker::Address.country}",
+    gender: ['Male', 'Female', 'Other'].sample,
+    email: "user#{i + 1}@gmail.com",
+    password: "123123"
+  )
+  user.save!
+  users << user
 end
 
 debates = []
-10.times do
-  debate = debate.new()
-  debate.save
-  debates << debate
+users.each do |user|
+  3.times do
+    debate = Debate.new(
+      title: Faker::Lorem.characters(number: rand(10..100)),
+      description: Faker::Lorem.characters(number: rand(30..300)),
+      user_id: user.id
+    )
+    debate.save!
+    debates << debate
+  end
 end
 
 debates.each do |debate|
-  10.times do
-    argument = Argument.new()
-    argument.save
+  6.times do
+    argument_for = Argument.new(
+      content: Faker::Lorem.characters(number: rand(10..300)),
+      user_id: User.first.id,
+      debate_id: debate.id,
+      perspective_pro: true
+    )
+    argument_for.save!
+    argument_against = Argument.new(
+      content: Faker::Lorem.characters(number: rand(10..300)),
+      user_id: User.last.id,
+      debate_id: debate.id,
+      perspective_pro: false
+    )
+    argument_against.save!
   end
 end
 
-chatrooms = []
-10.times do
-  chatroom = Chatroom.new()
-  chatroom.save
-  chatrooms << chatroom
-end
+chatroom = Chatroom.new(
+  debate_id: Debate.first.id,
+  user_for_id: User.first.id,
+  user_against_id: User.last.id
+)
+chatroom.save!
 
-chatrooms.each do |chatroom|
-  10.times do
-    message = Message.new()
-    message.save
-    reflection = Reflection.new()
-    reflection.save
-  end
+5.times do
+  message = Message.new(
+    chatroom_id: chatroom.id,
+    comment: Faker::Lorem.characters(number: rand(10..300)),
+    user_id: User.first.id
+  )
+  message.save!
+  response = Message.new(
+    chatroom_id: chatroom.id,
+    comment: Faker::Lorem.characters(number: rand(10..300)),
+    user_id: User.last.id
+  )
+  response.save!
+  reflection = Reflection.new(
+    chatroom_id: chatroom.id,
+    user_id: User.first.id,
+    debate_chat_score: rand(1..10),
+    conclusion: Faker::Lorem.characters(number: rand(10..300))
+  )
+  reflection.save!
 end

@@ -5,5 +5,4 @@ class Argument < ApplicationRecord
   has_many :comment_swipe_users
 
   validates :content, presence: true, length: { in: 6..300 }
-  validates :perspective_pro, presence: true
 end
