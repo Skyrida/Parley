@@ -1,0 +1,55 @@
+ .button-primary {
+  width: 270px;
+  height: 40px;
+  background-color: $custom-primary;
+  padding: 10px;
+  border: 1px solid $custom-primary;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+ }
+
+ .button-secondary {
+  width: 270px;
+  height: 40px;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid $custom-primary;
+  border-radius: 5px;
+  color: $custom-primary;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+ }
+
+ .button-agree {
+  width: 120px;
+  height: 40px;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid $custom-agree;
+  border-radius: 5px;
+  color: $custom-agree;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+ }
+
+ .button-disagree {
+  width: 120px;
+  height: 40px;
+  background-color: white;
+  padding: 10px;
+  border: 1px solid $custom-disagree;
+  border-radius: 5px;
+  color: $custom-disagree;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+ }
