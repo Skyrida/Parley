@@ -7,6 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 Argument.destroy_all
+Reflection.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
 Debate.destroy_all
 User.destroy_all
 
@@ -29,8 +32,8 @@ debates = []
 users.each do |user|
   3.times do
     debate = Debate.new(
-      title: Faker::Lorem.characters(number: rand(10..100)),
-      description: Faker::Lorem.characters(number: rand(30..300)),
+      title: Faker::Lorem.paragraph_by_chars(number: 70, supplemental: false),
+      description: Faker::Lorem.paragraph_by_chars(number: 200, supplemental: false),
       user_id: user.id
     )
     debate.save!
@@ -41,14 +44,14 @@ end
 debates.each do |debate|
   6.times do
     argument_for = Argument.new(
-      content: Faker::Lorem.characters(number: rand(10..300)),
+      content: Faker::Lorem.paragraph_by_chars(number: 250, supplemental: false),
       user_id: User.first.id,
       debate_id: debate.id,
       perspective_pro: true
     )
     argument_for.save!
     argument_against = Argument.new(
-      content: Faker::Lorem.characters(number: rand(10..300)),
+      content: Faker::Lorem.paragraph_by_chars(number: 250, supplemental: false),
       user_id: User.last.id,
       debate_id: debate.id,
       perspective_pro: false
@@ -67,13 +70,13 @@ chatroom.save!
 5.times do
   message = Message.new(
     chatroom_id: chatroom.id,
-    comment: Faker::Lorem.characters(number: rand(10..300)),
+    comment: Faker::Lorem.paragraph_by_chars(number: 150, supplemental: false),
     user_id: User.first.id
   )
   message.save!
   response = Message.new(
     chatroom_id: chatroom.id,
-    comment: Faker::Lorem.characters(number: rand(10..300)),
+    comment: Faker::Lorem.paragraph_by_chars(number: 150, supplemental: false),
     user_id: User.last.id
   )
   response.save!
@@ -81,7 +84,7 @@ chatroom.save!
     chatroom_id: chatroom.id,
     user_id: User.first.id,
     debate_chat_score: rand(1..10),
-    conclusion: Faker::Lorem.characters(number: rand(10..300))
+    conclusion: Faker::Lorem.paragraph_by_chars(number: 50, supplemental: false)
   )
   reflection.save!
 end

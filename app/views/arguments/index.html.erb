@@ -1,0 +1,26 @@
+<div class="main-container-block">
+  <div class="debate-header-body">
+    <h1><%= @arguments.first.debate.title%></h1>
+    <div class="tag-names">
+      <%# @arguments.first.debate.tag_list.each do |tag_name| %>
+        <%# <div class="tag-pill"> %>
+          <%#= tag_name %>
+        <%# </div> %>
+      <%# end %>
+    </div>
+  </div>
+  <div class="swipe-body">
+    <% @arguments.each do |argument| %>
+      <div class="swiper-card">
+        <h3><%= argument.content %></h3>
+      </div>
+    <% end %>
+  </div>
+  <div class="swipe-options-body">
+    <div class="button-disagree">Disagree</div>
+    <div class="button-agree">Agree</div>
+  </div>
+  <div class="proceed-option-body">
+    <div class="button-secondary">Continue to the debate</div>
+  </div>
+</div>

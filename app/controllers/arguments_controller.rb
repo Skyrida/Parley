@@ -1,6 +1,7 @@
 class ArgumentsController < ApplicationController
   def index
-
+    @debate = Debate.find(params[:debate_id])
+    @arguments = @debate.arguments
   end
 
   def new
