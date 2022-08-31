@@ -11,13 +11,34 @@
 
  .argument-card {
   width: 100%;
-  height: 180px;
-  padding: 10px;
+  height: auto;
+  padding: 15px;
   margin-bottom: 15px;
   border-radius: 5px;
   border: 2px solid $custom-background;
   display: block;
   justify-content: center;
+  overflow-wrap: break-word;
+  // position: relative;
+
+  p {
+    color: #B2C0CB;
+    margin-bottom: 15px;
+  }
+
+  .argument-icon-container {
+    width: 100%;
+    // margin: auto;
+    // position: absolute;
+    // bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .icon-format {
+    width: 18px;
+  }
  }
 
  .swiper-card {

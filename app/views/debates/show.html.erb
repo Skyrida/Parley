@@ -1,0 +1,28 @@
+<div class="main-container-block">
+  <div class="title-container">
+    <h1><%= @debate.title %></h1>
+  </div>
+
+  <% @arguments.each do |argument| %>
+    <div class="argument-card">
+      <p><%= argument.content %></p>
+      <div class="argument-icon-container">
+        <%= image_tag "flag-icon.png", class: "icon-format" %>
+        <%= image_tag "full-heart-icon.png", class: "icon-format" %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="debate-buttons-container">
+    <div class="debate-procon-container">
+      <%= link_to "See con", debate_path(category: "con"), class: "button-disagree #{'button-disagree-full' if params[:category] == "con"}" %>
+      <%= link_to "See pro", debate_path(category: "pro"), class: "button-agree #{'button-agree-full' if params[:category] == "pro"}" %>
+    </div>
+    <div class="debate-adddebate-container">
+      <%= link_to "Add argument", root_path, class: "button-secondary" %>
+    </div>
+    <div class="debate-requestpartner-container">
+      <%= link_to "Request debate partner", root_path, class: "button-primary" %>
+    </div>
+  </div>
+</div>
