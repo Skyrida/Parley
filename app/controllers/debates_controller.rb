@@ -1,4 +1,6 @@
 class DebatesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     if params[:title]
       @debates = Debate.where(title: params[:title])
@@ -22,11 +24,13 @@ class DebatesController < ApplicationController
   end
 
   def new
-
+    @debate = Debate.new
   end
 
   def create
-
+    @debate = Debate.new(debate_params)
+    @debate.save
+    redirect_to debate_path(@debate)
   end
 
   def destroy

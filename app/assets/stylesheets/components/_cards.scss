@@ -43,12 +43,17 @@
  }
 
  .swiper-card {
-  // background-image: url(); - we should add here the wave image on white background
-  width: 270px;
-  height: 270px;
+  background-image: url("../../images/wave.png");
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  border: 2px solid $custom-background;
   padding: 10px;
   margin: auto;
  }
+
 .debate-card-title {
   color: #031827;
   text-decoration: none;

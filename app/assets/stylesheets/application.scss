@@ -11,6 +11,13 @@
 @import "components/index";
 @import "pages/index";
 
+a {
+  text-decoration: none;
+}
+
 body {
+  margin-top: 75px;
+  margin-bottom: 60px;
+  background-color: white;
   color: $custom-font-color;
 }
