@@ -11,7 +11,14 @@ class DebatesController < ApplicationController
 
 
   def show
+    @debate = Debate.find(params[:id])
+    @arguments = @debate.arguments
 
+    if params[:category] == "pro"
+      @arguments = @debate.arguments.where(perspective_pro: true)
+    elsif params[:category] == "con"
+      @arguments = @debate.arguments.where(perspective_pro: false)
+    end
   end
 
   def new
