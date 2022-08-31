@@ -1,7 +1,14 @@
 class DebatesController < ApplicationController
   def index
-
+    if params[:title]
+      @debates = Debate.where(title: params[:title])
+    elsif params[:query]
+      @debates = Debate.search_by_title(params[:query])
+    else
+      @debates = Debate.all
+    end
   end
+
 
   def show
     @debate = Debate.find(params[:id])
