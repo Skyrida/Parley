@@ -36,7 +36,7 @@ users.each do |user|
       description: Faker::Lorem.paragraph_by_chars(number: 200, supplemental: false),
       user_id: user.id
     )
-    debate.tag_list.add("awesome", "fake",)
+    debate.tag_list.add("awesome", "fake")
     debate.save!
     debates << debate
   end
