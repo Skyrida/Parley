@@ -2,11 +2,11 @@
   <div class="debate-header-body">
     <h1><%= @arguments.first.debate.title%></h1>
     <div class="tag-names">
-      <%# @arguments.first.debate.tag_list.each do |tag_name| %>
-        <%# <div class="tag-pill"> %>
-          <%#= tag_name %>
-        <%# </div> %>
-      <%# end %>
+      <% @arguments.first.debate.tag_list.each do |tag_name| %>
+        <div class="tag-pill">
+          <%= tag_name %>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="swipe-body">
