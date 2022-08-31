@@ -1,5 +1,5 @@
 .debate-card {
-  width: 100%;
+  width: 300px;
   height: 180px;
   padding: 10px;
   margin-bottom: 15px;
@@ -18,6 +18,7 @@
   border: 2px solid $custom-background;
   display: block;
   justify-content: center;
+  background-color: white;
  }
 
  .swiper-card {
@@ -27,3 +28,62 @@
   padding: 10px;
   margin: auto;
  }
+.debate-card-title {
+  color: #031827;
+  text-decoration: none;
+  font-family: "Titillium Web";
+}
+
+.debate-card-text {
+ text-decoration: none;
+  color: #031827;
+  font-family: "Poppins";
+}
+
+.h1-debate-card {
+  font-family: "Titillium Web";
+  color: #031827;
+}
+
+.header-debate-card {
+  width: 280px;
+  height: 40px;
+  justify-content: space-between;
+  text-decoration: none;
+display: flex;
+}
+.text {
+
+  text-decoration: none;
+
+}
+
+.tag-pill {
+background-color: $custom-primary;
+border-radius: 28px;
+color: white;
+padding-left: 5px;
+padding-right: 5px;
+margin-right: 5px;
+height: 25px;
+}
+
+.tag-names {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.debate-header-picture img {
+
+  width: 20px;
+  height: 20px;
+}
+
+.index-page-card {
+  flex-wrap: wrap;
+  display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-direction: column;
+   align-content: stretch;
+}

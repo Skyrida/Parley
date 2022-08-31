@@ -7,6 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 Argument.destroy_all
+Reflection.destroy_all
+Message.destroy_all
+Chatroom.destroy_all
 Debate.destroy_all
 User.destroy_all
 
@@ -29,10 +32,13 @@ debates = []
 users.each do |user|
   3.times do
     debate = Debate.new(
-      title: Faker::Lorem.characters(number: rand(10..100)),
-      description: Faker::Lorem.characters(number: rand(30..300)),
+      title: Faker::FunnyName.name,
+      description: Faker::Hacker.say_something_smart,
       user_id: user.id
+
+
     )
+    debate.tag_list.add("awesome", "fake",)
     debate.save!
     debates << debate
   end
