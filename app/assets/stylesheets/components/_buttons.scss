@@ -40,6 +40,20 @@
   text-align: center;
  }
 
+ .button-agree-full {
+  width: 120px;
+  height: 40px;
+  background-color: $custom-agree;
+  padding: 10px;
+  border: 1px solid $custom-agree;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+ }
+
  .button-disagree {
   width: 120px;
   height: 40px;
@@ -48,6 +62,20 @@
   border: 1px solid $custom-disagree;
   border-radius: 5px;
   color: $custom-disagree;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+ }
+
+ .button-disagree-full {
+  width: 120px;
+  height: 40px;
+  background-color: $custom-disagree;
+  padding: 10px;
+  border: 1px solid $custom-disagree;
+  border-radius: 5px;
+  color: white;
   font-size: 16px;
   font-weight: bold;
   text-decoration: none;
