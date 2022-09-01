@@ -42,9 +42,21 @@
   }
  }
 
- .swiper-card {
-  background-image: url("../../images/wave.png");
+ .swiper-card-1 {
+  background-image: url("wave.png");
   background-position: right bottom;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  border: 2px solid $custom-background;
+  padding: 10px;
+  margin: auto;
+ }
+
+ .swiper-card-2 {
+  background-image: url("wave.png");
+  background-position: left bottom;
   background-repeat: no-repeat;
   width: 100%;
   height: auto;
