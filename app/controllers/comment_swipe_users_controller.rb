@@ -1,6 +1,30 @@
 class CommentSwipeUsersController < ApplicationController
   def create
+    @like_function = CommentSwipeUser.new(argument_id: params[:argument_id], user: current_user, argument_agree: true)
+    @debate = @like_function.argument.debate
 
+    if @like_function.save
+      redirect_to debate_path(@debate)
+    else
+    
+    end
+  end
+
+  def update
+    @like_function = CommentSwipeUser.find(params[:id])
+    @debate = @like_function.argument.debate
+
+    if @like_function.argument_agree == true
+      @like_function.argument_agree = false
+    else
+      @like_function.argument_agree = true
+    end
+    
+    if @like_function.save
+      redirect_to debate_path(@debate)
+    else
+      
+    end
   end
 
   private
