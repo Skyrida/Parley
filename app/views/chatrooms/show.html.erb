@@ -1,0 +1,28 @@
+<div class="container chatroom">
+  <h1>Chatroom</h1>
+  <p>Debate: <%= @chatroom.debate.title %></p>
+  <p>User 1: <%= User.find(@chatroom.user_for_id).username %></p>
+  <p>User 2: <%= User.find(@chatroom.user_against_id).username %></p>
+
+  <div class="messages">
+    <% @chatroom.messages.each do |message| %>
+      <div id="message-<%= message.id %>">
+        <small>
+          <strong><%= message.user.username %></strong>
+          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+        </small>
+        <p><%= message.comment %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <%= simple_form_for [@chatroom, @message],
+  html: {class: "d-flex"} do |f| %>
+    <%= f.input :comment,
+      label: false,
+      placeholder: "Type message here",
+      wrapper_html: {class: "flex-grow-1"}
+    %>
+    <%= f.submit "Send", class: "btn btn-primary" %>
+  <% end %>
+</div>
