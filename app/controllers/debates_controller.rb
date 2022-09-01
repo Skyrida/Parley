@@ -37,6 +37,19 @@ class DebatesController < ApplicationController
 
   end
 
+  def search
+    @debate = Debate.find(params[:debate_id])
+    # current_user.looking_for_chatroom = true
+    # current_user.save
+    @my_chat = current_user.chatrooms.find_by(status_active: true)
+
+    if @my_chat
+      redirect_to chatroom_path(@my_chat)
+    else
+      # stimulus
+    end
+  end
+
   private
 
   def debate_params

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :debates, only: [:index, :show, :new, :create, :destroy] do
     resources :arguments, only: [:index, :new, :create]
+    get "search", action:"search"
+    resources :chatrooms, only: [:create]
   end
 
   resources :arguments, only: [:destroy] do
@@ -14,7 +16,7 @@ Rails.application.routes.draw do
     resources :comment_swipe_users, only: [:create, :update]
   end
 
-  resources :chatrooms, only: [:index, :show, :create] do
+  resources :chatrooms, only: [:index, :show] do
     resources :messages, only: [:create]
     resources :reflections, only: [:new, :create]
   end

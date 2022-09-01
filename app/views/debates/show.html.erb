@@ -35,7 +35,7 @@
       <%= link_to "Add argument", root_path, class: "button-secondary" %>
     </div>
     <div class="debate-requestpartner-container">
-      <%= link_to "Request debate partner", root_path, class: "button-primary" %>
+      <%= link_to "Request debate partner", debate_chatrooms_path(@debate), data: {turbo_method: :post}, class: "button-primary" %>
     </div>
   </div>
 </div>

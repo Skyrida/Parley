@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_30_073613) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_01_094015) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,6 +59,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_073613) do
     t.bigint "user_against_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "status_active", default: true
     t.index ["debate_id"], name: "index_chatrooms_on_debate_id"
     t.index ["user_against_id"], name: "index_chatrooms_on_user_against_id"
     t.index ["user_for_id"], name: "index_chatrooms_on_user_for_id"
@@ -90,6 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_073613) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.text "description"
+    t.string "waiting_for_chat", default: ""
     t.index ["user_id"], name: "index_debates_on_user_id"
   end
 
@@ -160,6 +162,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_073613) do
     t.string "location"
     t.string "gender"
     t.string "image"
+    t.boolean "looking_for_chatroom", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
