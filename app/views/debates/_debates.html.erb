@@ -1,0 +1,49 @@
+ <div data-searchbar-target="debatesCards">
+     <% @debates.each do |debate| %>
+      <% if debate.arguments.count > 0 %>
+        <%= link_to debate_arguments_path(debate.id), class: "text" do %>
+          <div class="debate-card">
+            <div>
+              <div class="header-debate-card">
+                <div class="tag-names">
+                  <% debate.tag_list.each do |tag_name| %>
+                    <div class="blue-tag">
+                      <p><%= tag_name  %></p>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="debate-header-picture">
+                  <%= image_tag "blitz.png" %>
+                  <%= debate.arguments.count %>
+                </div>
+              </div>
+              <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
+              <p class="debate-card-text"><%=  debate.description %></p>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <%= link_to debate_path(debate.id), class: "text" do %>
+          <div class="debate-card">
+              <div>
+                <div class="header-debate-card">
+                  <div class="tag-names">
+                    <% debate.tag_list.each do |tag_name| %>
+                      <div class="blue-tag">
+                        <p><%= tag_name  %></p>
+                      </div>
+                    <% end %>
+                  </div>
+                  <div class="debate-header-picture">
+                    <%= image_tag "blitz.png" %>
+                    <%= debate.arguments.count %>
+                  </div>
+                </div>
+                <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
+                <p class="debate-card-text"><%=  debate.description %></p>
+              </div>
+            </div>
+          <% end %>
+      <% end %>
+    <% end %>
+  </div>

@@ -1,0 +1,15 @@
+<div class="d-none searchbar-wrapper" data-searchbar-target="searchbarform">
+  <div class="searchbar">
+    <%= form_with url: debates_path, data: { action: "keyup->searchbar#searchFunction", searchbar_target: "formQuery" } do |f| %>
+     <%= f.text_field  :query, id: "searchquery", placeholder:"find your debate..."  %>
+     <% end %>
+  </div>
+</div>
+
+        <%# <form>
+            <fieldset>
+
+              <input type="text" name="" id="searchquery"  placeholder="find your debate... ">
+            </fieldset>
+
+       </form> %>

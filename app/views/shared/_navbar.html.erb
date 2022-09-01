@@ -1,18 +1,30 @@
 <div class="navbar">
   <div class="main-container-block">
     <div class="navbar-items">
-      <%= link_to debates_path do %>
-        <%= image_tag("home-icon.png", class: "navbar-icon") %>
-      <% end %>
-      <%= link_to debates_path do %>
-        <%= image_tag("search-icon.png", class: "navbar-icon") %>
-      <% end %>
-      <%= link_to new_debate_path do %>
-        <%= image_tag("create-debate-icon.png", class: "navbar-icon") %>
-      <% end %>
-      <%= link_to edit_user_registration_path do %>
-        <%= image_tag("profile-icon.png", class: "navbar-icon") %>
-      <% end %>
+
+      <div>
+        <%= link_to debates_path do %>
+          <%= image_tag("home-icon.png", class: "navbar-icon") %>
+        <% end %>
+      </div>
+
+      <%= render "shared/searchbar"%>
+      <div data-action="click->searchbar#appear">
+        <%= image_tag("search-icon.png", class: "navbar-icon search-button") %>
+      </div>
+
+      <div>
+        <%= link_to new_debate_path do %>
+          <%= image_tag("create-debate-icon.png", class: "navbar-icon") %>
+        <% end %>
+      </div>
+
+      <div>
+        <%= link_to edit_user_registration_path do %>
+          <%= image_tag("profile-icon.png", class: "navbar-icon") %>
+        <% end %>
+      </div>
+
     </div>
   </div>
 </div>
