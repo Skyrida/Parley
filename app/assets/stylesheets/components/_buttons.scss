@@ -2,7 +2,6 @@
   width: 270px;
   height: 40px;
   background-color: $custom-primary;
-  padding: 10px;
   border: 1px solid $custom-primary;
   border-radius: 5px;
   color: white;
@@ -10,13 +9,19 @@
   font-weight: bold;
   text-decoration: none;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    margin: auto;
+  }
  }
 
  .button-secondary {
   width: 270px;
   height: 40px;
   background-color: white;
-  padding: 10px;
   border: 1px solid $custom-primary;
   border-radius: 5px;
   color: $custom-primary;
@@ -24,6 +29,13 @@
   font-weight: bold;
   text-decoration: none;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    margin: auto;
+  }
  }
 
  .button-agree {
