@@ -1,3 +1,61 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%#= link_to ("Index", debates_path) %>
+<body style="margin-top:0px; margin-bottom:0px;">
+  <div id="home-banner" >
+    <%= link_to debates_path do %>
+      <div class="button-primary home-button-1">
+        <p>open our mind</p>
+      </div>
+    <% end %>
+    <div class="push-down"  >
+      <%= link_to "#info-scroll" do %>
+        <%= image_tag("push-down-arrow.png", class: "push-down-image")%>
+      <% end %>
+    </div>
+    <div class="main-container-block" style="background:rgba(1, 1, 1, .0); margin-top:0px">
+      <div class="main-content">
+        <div class="main-brand">
+          <div class="logo-section">
+            <%= image_tag("logoparley.png", class: "main-logo") %>
+            <h1 class="main-title">Parley</h1>
+          </div>
+          <h2 class="subtitle">A new digital bridge across our divided societies</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="main-container-block" style="background:rgba(255, 255, 255, 1)" id="info-scroll" >
+      <div class="info-section" >
+        <div class="info-aspect">
+          <%= image_tag("learn.png", class: "home_illustration") %>
+          <h3>Through debates we learn</h3>
+          <p>Having quality debates in today’s polarized world can be difficult.</p>
+        </div>
+        <div class="info-aspect">
+          <%= image_tag("digital.png", class: "home_illustration") %>
+          <h3>100% Digital</h3>
+          <p>Designed to remove bias and enable us to learn together from each other</p>
+        </div>
+        <div class="info-aspect">
+          <%= image_tag("inspiring.png", class: "home_illustration") %>
+          <h3>Inspiring</h3>
+          <p>Choose from hundreds of debates or add one of your own</p>
+        </div>
+        <div class="info-aspect">
+          <%= image_tag("safe.png", class: "home_illustration") %>
+          <h3>Safe</h3>
+          <p>Protect your identity and focus on the debate rather than the partner</p>
+        </div>
+        <div class="info-aspect">
+          <%= image_tag("convenient.png", class: "home_illustration") %>
+          <h3>Convenient</h3>
+          <p>Use our digital platform to debate anytime anywhere</p>
+        </div>
+        <div class="bottom-home-button">
+          <%= link_to debates_path do %>
+            <div class="button-primary home-button-2">
+              <p>open our mind</p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</body>

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :arguments, only: [:destroy] do
     resources :comment_like_users, only: [:create]
-    resources :comment_swipe_users, only: [:create]
+    resources :comment_swipe_users, only: [:create, :update]
   end
 
   resources :chatrooms, only: [:index, :show, :create] do

@@ -32,7 +32,7 @@ debates = []
 users.each do |user|
   3.times do
     debate = Debate.new(
-      title: Faker::FunnyName.name,
+      title: Faker::Lorem.paragraph_by_chars(number: 50, supplemental: false),
       description: Faker::Lorem.paragraph_by_chars(number: 200, supplemental: false),
       user_id: user.id
     )
