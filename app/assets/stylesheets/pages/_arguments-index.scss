@@ -1,0 +1,16 @@
+.debate-header-body {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  margin-bottom: 15px;
+
+  h1 {
+    margin-bottom: 15px;
+  }
+}
+
+.swiper-body {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}

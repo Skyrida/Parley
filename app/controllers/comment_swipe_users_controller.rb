@@ -6,7 +6,7 @@ class CommentSwipeUsersController < ApplicationController
     if @like_function.save
       redirect_to debate_path(@debate)
     else
-    
+
     end
   end
 
@@ -19,11 +19,11 @@ class CommentSwipeUsersController < ApplicationController
     else
       @like_function.argument_agree = true
     end
-    
+
     if @like_function.save
       redirect_to debate_path(@debate)
     else
-      
+
     end
   end
 
