@@ -8,9 +8,10 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   </head>
 
-  <body>
+  <body data-controller="searchbar">
     <% unless params[:controller] == "pages" && params[:action] == "home"%>
       <%= render "shared/header" %>
     <% end %>

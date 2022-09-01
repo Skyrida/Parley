@@ -1,40 +1,6 @@
 <div class="index-page-card">
 
 <h1 class="h1-debate-card">open our mind</h1>
+<%= render"debates/debates", debates: @debates %>
 
-
-    <% @debates.each do |debate| %>
-      <%= link_to debate_path(debate.id), class: "text" do %>
-
-
-
-        <div class="debate-card">
-          <div>
-           <div class="header-debate-card">
-            <div class="tag-names">
-            <% debate.tag_list.each do |tag_name| %>
-
-           <div class="tag-pill">
-            <%= tag_name  %>
-            </div>
-
-          <% end %>
-          </div>
-          <div class="debate-header-picture">
-           <%= image_tag "blitz.png" %>
-           <%= debate.arguments.count %>
-           </div>
-
-
-
-          </div>
-            <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
-            <p class="debate-card-text"><%=  debate.description %></p>
-          </div>
-        </div>
-
-
-      <% end %>
-    <% end %>
-  </div>
 </div>

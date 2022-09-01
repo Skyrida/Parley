@@ -1,0 +1,30 @@
+.searchbar {
+    height: 100px;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .searchbar-wrapper {
+    position: absolute;
+    bottom: 90px;
+    left: 1px;
+  }
+
+.search-icon {
+  height: 20px;
+  width: 20px;
+}
+
+fieldset {
+  border: 1px solid white;
+  display: inline-block;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  padding: 1em 2em;
+}
+
+
+// <%= image_tag("search-icon.png", class: "header-icon") %>
