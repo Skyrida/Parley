@@ -3,7 +3,9 @@ class DebatesController < ApplicationController
 
   def index
     if params[:title]
-      @debates = Debate.where(title: params[:title])
+      @debates = Debate.where("title ILIKE ?", "%#{params[:title]}%")
+    elsif params[:tags]
+      @debates = Debate.where("tags ILIKE ?", "%#{params[:tags]}%")
     elsif params[:query]
       @debates = Debate.search_by_title(params[:query])
     else
