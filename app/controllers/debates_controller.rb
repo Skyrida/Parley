@@ -29,8 +29,13 @@ class DebatesController < ApplicationController
 
   def create
     @debate = Debate.new(debate_params)
-    @debate.save
-    redirect_to debate_path(@debate)
+    @debate.user = current_user
+
+    if @debate.save
+      redirect_to debate_path(@debate)
+    else
+      redirect_to new_debate_path
+    end
   end
 
   def destroy
@@ -40,6 +45,6 @@ class DebatesController < ApplicationController
   private
 
   def debate_params
-    params.require(:debate).permit(:title, :image)
+    params.require(:debate).permit(:title, :description, :tag_list)
   end
 end

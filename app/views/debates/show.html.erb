@@ -1,6 +1,14 @@
+<body style="margin-bottom:240px">
 <div class="main-container-block">
-  <div class="title-container">
-    <h1><%= @debate.title %></h1>
+  <div class="debate-header-body">
+    <h1><%= @debate.title%></h1>
+    <div class="tag-names">
+      <% @debate.tag_list.each do |tag_name| %>
+        <div class="blue-tag">
+          <p><%= tag_name %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
 
   <% @arguments.each do |argument| %>
@@ -26,16 +34,17 @@
     </div>
   <% end %>
 
-  <div class="debate-buttons-container">
+  <div class="debate-buttons-container debate-buttons-container-grey">
     <div class="debate-procon-container">
       <%= link_to "See con", debate_path(category: "con"), class: "button-disagree #{'button-disagree-full' if params[:category] == "con"}" %>
       <%= link_to "See pro", debate_path(category: "pro"), class: "button-agree #{'button-agree-full' if params[:category] == "pro"}" %>
     </div>
     <div class="debate-adddebate-container">
-      <%= link_to "Add argument", root_path, class: "button-secondary" %>
+      <%= link_to "Add argument", new_debate_argument_path(@debate), class: "button-secondary" %>
     </div>
     <div class="debate-requestpartner-container">
       <%= link_to "Request debate partner", root_path, class: "button-primary" %>
     </div>
   </div>
 </div>
+</body>

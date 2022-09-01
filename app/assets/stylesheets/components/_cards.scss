@@ -42,28 +42,54 @@
   }
  }
 
- .swiper-card-1 {
-  background-image: url("wave.png");
-  background-position: right bottom;
+ .swiper-card {
   background-repeat: no-repeat;
   width: 100%;
-  height: auto;
   border-radius: 5px;
   border: 2px solid $custom-background;
   padding: 10px;
   margin: auto;
+  margin-bottom: 10px;
+  display: flex;
+  height: 45vh;
+  align-items: center;
+  text-align: center;
+
+  p {
+    margin-bottom: 0px;
+  }
+ }
+
+ .swiper-card-1 {
+  background-image: url("wave1.png");
+  background-position: right bottom;
  }
 
  .swiper-card-2 {
-  background-image: url("wave.png");
+  background-image: url("wave1.png");
   background-position: left bottom;
-  background-repeat: no-repeat;
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-  border: 2px solid $custom-background;
-  padding: 10px;
-  margin: auto;
+ }
+
+ .swiper-card-3 {
+  background-image: url("wave1.png");
+  background-position: center bottom;
+
+ }
+
+ .swiper-card-4 {
+  background-image: url("wave2.png");
+  background-position: right top;
+
+ }
+
+ .swiper-card-5 {
+  background-image: url("wave2.png");
+  background-position: left top;
+ }
+
+ .swiper-card-6 {
+  background-image: url("wave2.png");
+  background-position: center top;
  }
 
 .debate-card-title {
@@ -88,12 +114,11 @@
   height: 40px;
   justify-content: space-between;
   text-decoration: none;
-display: flex;
+  display: flex;
+  align-items: center;
 }
 .text {
-
   text-decoration: none;
-
 }
 
 .tag-pill {

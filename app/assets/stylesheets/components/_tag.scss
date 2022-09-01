@@ -1,16 +1,19 @@
  .blue-tag {
   background-color: $custom-primary;
-  padding: 10px 15px 10px 15px;
+  padding: 5px 10px 5px 10px;
   border: none;
   border-radius: 30px;
+  margin-right: 5px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 
  p {
   color: white;
-  margin: 0px;
-  padding: 0px;
-  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
   font-size: 12px;
   font-weight: 600;
  }
  }
- 
