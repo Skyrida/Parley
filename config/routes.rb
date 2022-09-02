@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [:index, :show] do
     resources :messages, only: [:create]
     resources :reflections, only: [:new, :create]
+    get "leave", action: "leave"
   end
 
   resources :reflections, only: [:show]
