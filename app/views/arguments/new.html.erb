@@ -1,7 +1,9 @@
-<h1>Create an argument</h1>
+<div class="main-container-block">
+  <h1>Create an argument</h1>
 
-<%= simple_form_for [@debate, @argument] do |f| %>
-  <%= f.input :content, label: false, placeholder: 'Argument', error: 'Argument is mandatory' %>
-  <%= f.input :perspective_pro, as: :radio_buttons, label: 'Pro or Con?', collection: [['Pro', 'true'], ['Con', 'false']] %>
-  <%= f.button :submit %>
-<% end %>
+  <%= simple_form_for [@debate, @argument] do |f| %>
+    <%= f.input :content, label: false, placeholder: 'Argument', error: 'Argument is mandatory' %>
+    <%= f.input :perspective_pro, as: :radio_buttons, label: 'Pro or Con?', collection: [['Pro', 'true'], ['Con', 'false']] %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
