@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
   </head>
 
-  <body data-controller="searchbar">
+  <body class="<%= 'my-0' if action_name == "home" %>" data-controller="searchbar">
     <% unless params[:controller] == "pages" && params[:action] == "home"%>
       <%= render "shared/header" %>
     <% end %>

@@ -10,5 +10,11 @@ application.register("chatroom-subscription", ChatroomSubscriptionController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import HomeIntroController from "./home_intro_controller"
+application.register("home-intro", HomeIntroController)
+
 import SearchbarController from "./searchbar_controller"
 application.register("searchbar", SearchbarController)
+
+import TweetController from "./tweet_controller"
+application.register("tweet", TweetController)

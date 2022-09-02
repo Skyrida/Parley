@@ -22,19 +22,37 @@
   position: relative;
   display: inline-block;
   bottom: -20px;
+  transition: ease-in-out 1s;
   opacity: 0;
 }
 
 .intro-line.active {
   bottom: 0px;
   opacity: 1;
-  transition: ease-in-out 1s;
 }
 
 .intro-line.fade {
   bottom: -50px;
   opacity: 0;
+}
+
+.main-logo-moving {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   transition: ease-in-out 1s;
+  opacity: 0;
+}
+
+.main-logo-moving.active {
+  bottom: 0px;
+  opacity: 1;
+}
+
+.main-logo-moving.fade {
+  bottom: 20px;
+  opacity: 0;
 }
 
 #home-banner {
