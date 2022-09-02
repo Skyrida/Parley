@@ -3,11 +3,11 @@
 <%= current_user.username %>
 
 <div>
-<% if user_signed_in? && current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, crop: :fill, class: "profile-icon"%>
-          <% else %>
+<%# if user_signed_in? && current_user.photo.attached? %>
+            <%#= cl_image_tag current_user.photo.key, crop: :fill, class: "profile-icon"%>
+          <%# else %>
             <%= image_tag "profile-icon.png", class: "profile-icon" %>
-          <% end %>
+          <%# end %>
 </div>
 
 
@@ -15,9 +15,14 @@
 <div class="useremail"> <strong> Email: </strong> <%= current_user.email %></div>
 <div class="userlocation"> <strong>Location: </strong> <%= current_user.location %></div>
 
-<div class="user-interessts">
-  <div class="user-interessts-string"> <strong>Interests:</strong> </div>
-  <div class="user-interessts-tags"> <%= here you will see some tags %></div> </div>
+  <div class="user-interessts">
+    <div class="user-interessts-string">
+      <strong>Interests:</strong>
+    </div>
+    <div class="user-interessts-tags">
+      <%#= here you will see some tags %>
+    </div>
+  </div>
 </div>
 
 <div class="rank:"> Rank:</div>
