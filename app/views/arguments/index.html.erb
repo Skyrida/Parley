@@ -16,8 +16,8 @@
         <p><%= @arguments.first.content %></p>
         <div class="debate-buttons-container">
           <div class="debate-procon-container">
-            <div class="button-disagree">Disagree</div>
-            <div class="button-agree">Agree</div>
+            <div data-bs-target="#carouselExampleControls" data-bs-slide="next" class="button-disagree">Disagree</div>
+            <div data-bs-target="#carouselExampleControls" data-bs-slide="next" class="button-agree">Agree</div>
           </div>
           <div class="debate-adddebate-container">
             <%= link_to "Continue to the debate", debate_path(@arguments.first.debate_id), class: "button-secondary" %>
@@ -33,9 +33,7 @@
         <div class="debate-buttons-container debate-buttons-container-white">
           <div class="debate-procon-container">
             <div class="button-disagree" data-bs-target="#carouselExampleControls" data-bs-slide="next">Disagree</div>
-            <%= link_to argument_comment_swipe_users_path(argument), data: {turbo_method: :post}, class: "button-agree" do %>
-              <div data-bs-target="#carouselExampleControls" data-bs-slide="next">Agree</div>
-            <% end %>
+            <div data-bs-target="#carouselExampleControls" data-bs-slide="next" class="button-agree">Agree</div>
           </div>
           <div class="debate-adddebate-container">
             <%= link_to "Continue to the debate", debate_path(@arguments.first.debate_id), class: "button-secondary" %>

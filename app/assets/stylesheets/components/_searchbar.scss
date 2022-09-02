@@ -1,16 +1,22 @@
-.searchbar {
-    height: 100px;
+
+
+  .searchbar-wrapper {
+    height: 70px;
     background-color: white;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .searchbar-wrapper {
     position: absolute;
-    bottom: 90px;
-    left: 1px;
+    bottom: 58px;
+    left: 0px;
+    background-color: white;
+    border: 2px solid #E4EEF5;
+
+    right: 0px;
+    border-top: 1px solid #5DB7DE;
+    border-top-left-radius: 5px;
+border-top-right-radius: 5px;
   }
 
 .search-icon {
@@ -26,5 +32,13 @@ fieldset {
   padding: 1em 2em;
 }
 
+.searchquery {
+  width: 200px;
+  border-radius: 5px;
+  border: 2px solid #E4EEF5;
+  height: 40px;
+  color: #1EA5FC;
+
+}
 
 // <%= image_tag("search-icon.png", class: "header-icon") %>
