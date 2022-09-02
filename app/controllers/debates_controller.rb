@@ -46,14 +46,24 @@ class DebatesController < ApplicationController
 
   def search
     @debate = Debate.find(params[:debate_id])
-    # current_user.looking_for_chatroom = true
-    # current_user.save
-    @my_chat = current_user.chatrooms.find_by(status_active: true)
+    @my_chat = current_user.chatrooms_for.find_by(status_active: true)
+
+    if @my_chat == nil
+      @my_chat = current_user.chatrooms_against.find_by(status_active: true)
+    end
+
 
     if @my_chat
-      redirect_to chatroom_path(@my_chat)
+      respond_to do |format|
+        format.html { redirect_to chatroom_path(@my_chat) }
+        format.json
+      end
     else
       # stimulus
+      respond_to do |format|
+        format.html
+        format.json
+      end
     end
   end
 
