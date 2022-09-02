@@ -1,8 +1,10 @@
-<h1>Start a debate</h1>
+<div class="main-container-block">
+  <h1>Start a debate</h1>
 
-<%= simple_form_for @debate do |f| %>
-  <%= f.input :title, label: false, placeholder: 'Title', error: 'Title is mandatory' %>
-  <%= f.input :description, label: false, placeholder: 'Description' %>
-  <%= f.input :tag_list, label: false, placeholder: 'Tag 1, Tag 2' %>
-  <%= f.button :submit %>
-<% end %>
+  <%= simple_form_for @debate do |f| %>
+    <%= f.input :title, label: false, placeholder: 'Title', error: 'Title is mandatory' %>
+    <%= f.input :description, label: false, placeholder: 'Description' %>
+    <%= f.input :tag_list, label: false, placeholder: 'Tag 1, Tag 2' %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

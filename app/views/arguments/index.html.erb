@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    <% @arguments.each do |argument| %>
+    <% @arguments.drop(1).each do |argument| %>
       <div class="carousel-item">
         <div class= "swiper-card <%=["swiper-card-1", "swiper-card-2", "swiper-card-3", "swiper-card-4", "swiper-card-5", "swiper-card-6"].sample%>" >
           <p><%= argument.content %></p>
