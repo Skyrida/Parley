@@ -1,8 +1,7 @@
-<body style="margin-top:0px; margin-bottom:0px;">
-  <div class="intro">
-    <%#= image_tag("logoparley.png", class: "main-logo") %>
+  <div class="intro" data-controller="home-intro" data-home-intro-target="intro">
+    <%= image_tag("logoparley.png", class: "main-logo-moving", data: {home_intro_target:"logoImage"}) %>
     <h2 class="intro-line-header">
-      <span class="intro-line">open </span><span class="intro-line">our </span><span class="intro-line">mind</span>
+      <span class="intro-line" data-home-intro-target="logoSpan">open&nbsp;</span><span class="intro-line" data-home-intro-target="logoSpan">our&nbsp;</span><span class="intro-line" data-home-intro-target="logoSpan">mind</span>
     </h2>
   </div>
   <div id="home-banner" >
@@ -64,6 +63,3 @@
         </div>
       </div>
     </div>
-
-    <script src="app/javascript/controllers/home_intro.js"></script>
-</body>

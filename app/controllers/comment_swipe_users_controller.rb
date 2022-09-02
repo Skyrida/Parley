@@ -3,8 +3,8 @@ class CommentSwipeUsersController < ApplicationController
     @like_function = CommentSwipeUser.new(argument_id: params[:argument_id], user: current_user, argument_agree: true)
     @debate = @like_function.argument.debate
 
-    if @like_function.save
-      redirect_to debate_path(@debate)
+    if @like_function.save!
+      redirect_to request.referer
     else
 
     end
