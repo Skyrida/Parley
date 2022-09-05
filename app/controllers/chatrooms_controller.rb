@@ -39,6 +39,7 @@ class ChatroomsController < ApplicationController
     @chatroom.save
     
     @debate = @chatroom.debate
-    redirect_to debate_path(@debate)
+    # redirect_to debate_path(@debate)
+    redirect_to new_chatroom_reflection_path(@chatroom)
   end
 end
