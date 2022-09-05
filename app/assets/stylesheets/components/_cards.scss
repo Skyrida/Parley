@@ -1,5 +1,5 @@
 .debate-card {
-  width: 300px;
+  width: 100%;
   height: auto;
   padding: 10px;
   margin-bottom: 15px;
@@ -23,7 +23,7 @@
   // position: relative;
 
   p {
-    color: #B2C0CB;
+    color: #373f47;
     margin-bottom: 15px;
   }
 
@@ -111,7 +111,7 @@
 }
 
 .header-debate-card {
-  width: 280px;
+  width: 100%;
   height: 40px;
   justify-content: space-between;
   text-decoration: none;
@@ -137,17 +137,22 @@ height: 25px;
   justify-content: flex-start;
 }
 
-.debate-header-picture img {
+.debate-header-picture {
+  display: inline-flex;
+  align-items: center;
+}
 
+.debate-header-picture img {
   width: 20px;
   height: 20px;
+  margin-left: 5px;
 }
 
 .index-page-card {
   flex-wrap: wrap;
   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   flex-direction: column;
-   align-content: stretch;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  align-content: stretch;
 }

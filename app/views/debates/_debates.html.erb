@@ -1,5 +1,5 @@
-<div data-searchbar-target="debatesCards">
-  <% @debates.each do |debate| %>
+<div data-searchbar-target="debatesCards" style="width:100%">
+  <% @debates.sort_by{ |debate| -debate.arguments.count }.each do |debate| %>
     <% if debate.arguments.count > 0 %>
       <%= link_to debate_arguments_path(debate.id), class: "text" do %>
         <div class="debate-card">
@@ -13,8 +13,8 @@
                 <% end %>
               </div>
               <div class="debate-header-picture">
-                <%= image_tag "blitz.png" %>
                 <%= debate.arguments.count %>
+                <%= image_tag "blue-comment.png" %>
               </div>
             </div>
             <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
@@ -35,8 +35,8 @@
                   <% end %>
                 </div>
                 <div class="debate-header-picture">
-                  <%= image_tag "blitz.png" %>
                   <%= debate.arguments.count %>
+                  <%= image_tag "blue-comment.png" %>
                 </div>
               </div>
               <h2 class="debate-card-title"><b><%= debate.title %></b></h2>

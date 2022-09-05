@@ -33,8 +33,9 @@
       </div>
     </div>
   <% end %>
-
-  <div class="debate-buttons-container debate-buttons-container-grey">
+</div>
+<div class="debate-buttons-container debate-buttons-container-grey">
+  <div class="main-container-block" style="background-color:rgba(1,1,1,.0); margin-top:0px; margin-bottom:0px;">
     <div class="debate-procon-container">
       <%= link_to "See con", debate_path(category: "con"), class: "button-disagree #{'button-disagree-full' if params[:category] == "con"}" %>
       <%= link_to "See pro", debate_path(category: "pro"), class: "button-agree #{'button-agree-full' if params[:category] == "pro"}" %>
