@@ -22,8 +22,8 @@
                   input_html: { autocomplete: "email" } %>
       <%= f.input :location,
                   as: :country,
-                  { priority_countries: ["AU", "CN", "GB", "ID", "US"], selected: :location },
-                  { label: false, prompt: "Select participation country" },
+                  #{ priority_countries: ["AU", "CN", "GB", "ID", "US"], selected: :location },
+                  #{ label: false, prompt: "Select participation country" },
                   required: true %>
       <%= f.input :gender,
                   as: :select,
