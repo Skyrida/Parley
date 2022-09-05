@@ -1,0 +1,18 @@
+<div class="main-container-block">
+  <div class="reflection-header">
+    <h3>Congratulations!</h3>
+    <p>You just finished debating "<%= @debate.title %>" with "<%= @debate_partner.username %>"</p>
+    <p>Please fill in the below reflection form before getting back into the ring!</p>
+  </div>
+  <div class="reflection-form-container">
+    <%= simple_form_for [@chatroom, @reflection] do |f| %>
+      <%= f.label "Please rate your chat experience" %>
+      <%= f.input :debate_chat_score, collection: 1..10, label: false %>
+      <%= f.input :conclusion, label: false, placeholder: 'Your conclusions', error: 'Please provide your conclusions in the form', class: "reflection-input-text" %>
+      <%= f.button :submit, "Submit reflection", class: "button-primary w-100" %>
+    <% end %>
+  </div>
+  <div class="reflection-button-container">
+    <button class="button-secondary w-100">Add debate partner as friend</button>
+  </div>
+</div>
