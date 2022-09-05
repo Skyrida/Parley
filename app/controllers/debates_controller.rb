@@ -2,12 +2,11 @@ class DebatesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:title]
-      @debates = Debate.where("title ILIKE ?", "%#{params[:title]}%")
-    elsif params[:tags]
-      @debates = Debate.where("tags ILIKE ?", "%#{params[:tags]}%")
-    elsif params[:query]
-      @debates = Debate.search_by_title(params[:query])
+    if params[:query]
+      @tags = Debate.select { |debate| debate.tag_list.map(&:downcase).include?(params[:query].downcase) }.to_a
+      @titles = Debate.search_by_title_and_taglist(params[:query]).to_a
+      @tags << @titles
+      @debates = @tags.flatten.uniq
     else
       @debates = Debate.all
     end
