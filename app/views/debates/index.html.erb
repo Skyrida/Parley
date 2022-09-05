@@ -1,4 +1,9 @@
-<div class="index-page-card">
-  <h1 class="h1-debate-card">open our mind</h1>
-  <%= render"debates/debates", debates: @debates %>
+<div class="main-banner">
+  <h2>open our mind</h2>
+  <%= image_tag("push-down-arrow-white.png", class: "banner-arrow")%>
+</div>
+<div class="main-container-block">
+  <div class="index-page-card">
+    <%= render"debates/debates", debates: @debates %>
+  </div>
 </div>

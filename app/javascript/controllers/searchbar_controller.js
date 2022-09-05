@@ -3,23 +3,31 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="searchbar"
 export default class extends Controller {
 
-  static targets = [ "searchbarform", "debatesCards", "formQuery"]
+  static targets = [ "searchbarform", "debatesCards", "formQuery", "searchInput"]
 
   appear() {
     this.searchbarformTarget.classList.toggle("d-none")
+    this.searchInputTarget.focus()
+    // console.log(this.searchInputTarget)
   }
 
   searchFunction(event) {
       console.log("in search")
-      const url = `${this.formQueryTarget.action}?title=${event.target.value}`
+      const url = `${this.formQueryTarget.action}?query=${event.target.value}`
       event.preventDefault()
-      fetch(url, {
-        headers: { "Accept": "application/json" },
-      })
-        .then(response => response.json())
-        .then((data) => {
-          this.debatesCardsTarget.outerHTML = (data.debates)
+      if ( window.location.pathname === "/debates" ) {
+        fetch(url, {
+          headers: { "Accept": "application/json" },
         })
+          .then(response => response.json())
+          .then((data) => {
+            this.debatesCardsTarget.outerHTML = (data.debates)
+          })
+      }
+      else {
+        // window.location = url;
+      }
+      // redirect to url
     // input = debate.getElementById('searchquery');
 
 

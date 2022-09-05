@@ -8,9 +8,11 @@
         <% end %>
       </div>
 
-      <%= render "shared/searchbar"%>
-      <div data-action="click->searchbar#appear">
-        <%= image_tag("search-icon.png", class: "navbar-icon search-button") %>
+      <div>
+        <%= render "shared/searchbar"%>
+        <div data-action="click->searchbar#appear">
+          <%= image_tag("search-icon.png", class: "navbar-icon search-button") %>
+        </div>
       </div>
 
       <div>
