@@ -11,7 +11,7 @@
 <div class="username" >
   <%= current_user.username %>
 
-</div class="whyaintthisworking">
+</div>
 
 <div class="profilecard">
 
@@ -47,167 +47,182 @@
                   <% end %>
   </div>
   </div>
+
   <div class="makeitcentered">
-  <button class="button-secondary" type="submit">Edit Profile</button>
+  <button class="button-secondary" type="submit" style="width: auto;">Edit Profile</button>
+  <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "button-secondary", style:"width: 100%;" %>
 </div>
 </div>
-<div class="firsth">
-<H1><strong>Your debates</strong></H1>
-</div>
-</div>
-<div>
-
-<div class="yourdebates">
-<% current_user.your_debates.each do |debate| %>
-    <% if debate.arguments.count > 0 %>
-      <%= link_to debate_arguments_path(debate.id), class: "text" do %>
-        <div class="debate-card">
-          <div>
-            <div class="header-debate-card">
-              <div class="tag-names">
-                <% debate.tag_list.each do |tag_name| %>
-                  <div class="blue-tag">
-                    <p><%= tag_name  %></p>
-                  </div>
-                <% end %>
-              </div>
-              <div class="debate-header-picture">
-                <%= image_tag "blitz.png" %>
-                <%= debate.arguments.count %>
-              </div>
-            </div>
-            <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
-            <p class="debate-card-text"><%=  debate.description %></p>
-          </div>
-        </div>
-      <% end %>
-    <% else %>
-        <%= link_to debate_path(debate.id), class: "text" do %>
-          <div class="debate-card">
-            <div>
-              <div class="header-debate-card">
-                <div class="tag-names">
-                  <% debate.tag_list.each do |tag_name| %>
-                    <div class="blue-tag">
-                      <p><%= tag_name  %></p>
-                    </div>
-                  <% end %>
-                </div>
-                <div class="debate-header-picture">
-                  <%= image_tag "blitz.png" %>
-                  <%= debate.arguments.count %>
-                </div>
-              </div>
-              <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
-              <p class="debate-card-text"><%=  debate.description %></p>
-            </div>
-          </div>
-        <% end %>
-    <% end %>
-  <% end %>
 
 <div class="firsth">
-<H1><strong>Your arguments</strong></H1>
-</div>
-<% current_user.your_arguemtens.each do |debate| %>
-    <% if debate.arguments.count > 0 %>
-      <%= link_to debate_arguments_path(debate.id), class: "text" do %>
-        <div class="debate-card">
-          <div>
-            <div class="header-debate-card">
-              <div class="tag-names">
-                <% debate.tag_list.each do |tag_name| %>
-                  <div class="blue-tag">
-                    <p><%= tag_name  %></p>
-                  </div>
-                <% end %>
-              </div>
-              <div class="debate-header-picture">
-                <%= image_tag "blitz.png" %>
-                <%= debate.arguments.count %>
-              </div>
-            </div>
-            <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
-            <p class="debate-card-text"><%=  debate.description %></p>
-          </div>
-        </div>
-      <% end %>
-    <% else %>
-        <%= link_to debate_path(debate.id), class: "text" do %>
-          <div class="debate-card">
-            <div>
-              <div class="header-debate-card">
-                <div class="tag-names">
-                  <% debate.tag_list.each do |tag_name| %>
-                    <div class="blue-tag">
-                      <p><%= tag_name  %></p>
-                    </div>
-                  <% end %>
-                </div>
-                <div class="debate-header-picture">
-                  <%= image_tag "blitz.png" %>
-                  <%= debate.arguments.count %>
-                </div>
-              </div>
-              <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
-              <p class="debate-card-text"><%=  debate.description %></p>
-            </div>
-          </div>
-        <% end %>
-    <% end %>
-  <% end %>
-
-<div class="firsth">
-<H1><strong>Your likes</strong></H1>
+  <H1><strong>Your debates</strong></H1>
 </div>
 
-<% current_user.your_likes.each do |debate| %>
-    <% if debate.arguments.count > 0 %>
-      <%= link_to debate_arguments_path(debate.id), class: "text" do %>
-        <div class="debate-card">
-          <div>
-            <div class="header-debate-card">
-              <div class="tag-names">
-                <% debate.tag_list.each do |tag_name| %>
-                  <div class="blue-tag">
-                    <p><%= tag_name  %></p>
-                  </div>
-                <% end %>
-              </div>
-              <div class="debate-header-picture">
-                <%= image_tag "blitz.png" %>
-                <%= debate.arguments.count %>
-              </div>
-            </div>
-            <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
-            <p class="debate-card-text"><%=  debate.description %></p>
-          </div>
-        </div>
+<div data-controller="userdebatesearch" class="pleasestay">
+  <div class="profilesearch">
+    <div  data-userdebatesearch-target="searchbarform">
+      <%= form_with url: debates_path, data: { action: "keyup->userdebatesearch#searchFunction", userdebatesearch_target: "formQuery" } do |f| %>
+        <%= f.text_field  :query, class: 'searchquery' , placeholder:"search your things..."  %>
       <% end %>
-    <% else %>
-        <%= link_to debate_path(debate.id), class: "text" do %>
-          <div class="debate-card">
-            <div>
-              <div class="header-debate-card">
-                <div class="tag-names">
-                  <% debate.tag_list.each do |tag_name| %>
-                    <div class="blue-tag">
-                      <p><%= tag_name  %></p>
-                    </div>
-                  <% end %>
-                </div>
-                <div class="debate-header-picture">
-                  <%= image_tag "blitz.png" %>
-                  <%= debate.arguments.count %>
-                </div>
-              </div>
-              <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
-              <p class="debate-card-text"><%=  debate.description %></p>
-            </div>
-          </div>
-        <% end %>
-    <% end %>
-  <% end %>
+    </div>
   </div>
-  </div>
+
+  <div data-userdebatesearch-target="debatesCards">
+    <div class="yourdebates">
+      <% current_user.your_debates.each do |debate| %>
+          <% if debate.arguments.count > 0 %>
+            <%= link_to debate_arguments_path(debate.id), class: "text" do %>
+              <div class="debate-card">
+                <div>
+                  <div class="header-debate-card">
+                    <div class="tag-names">
+                      <% debate.tag_list.each do |tag_name| %>
+                        <div class="blue-tag">
+                          <p><%= tag_name  %></p>
+                        </div>
+                      <% end %>
+                    </div>
+                    <div class="debate-header-picture">
+                      <%= image_tag "blitz.png" %>
+                      <%= debate.arguments.count %>
+                    </div>
+                  </div>
+                  <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
+                  <p class="debate-card-text"><%=  debate.description %></p>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+              <%= link_to debate_path(debate.id), class: "text" do %>
+                <div class="debate-card">
+                  <div>
+                    <div class="header-debate-card">
+                      <div class="tag-names">
+                        <% debate.tag_list.each do |tag_name| %>
+                          <div class="blue-tag">
+                            <p><%= tag_name  %></p>
+                          </div>
+                        <% end %>
+                      </div>
+                      <div class="debate-header-picture">
+                        <%= image_tag "blitz.png" %>
+                        <%= debate.arguments.count %>
+                      </div>
+                    </div>
+                    <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
+                    <p class="debate-card-text"><%=  debate.description %></p>
+                  </div>
+                </div>
+              <% end %>
+          <% end %>
+        <% end %>
+    </div>
+
+    <div class="firsth">
+      <H1><strong>Your arguments</strong></H1>
+    </div>
+
+    <div class="yourdebates">
+      <% current_user.your_arguemtens.each do |debate| %>
+          <% if debate.arguments.count > 0 %>
+            <%= link_to debate_arguments_path(debate.id), class: "text" do %>
+              <div class="debate-card">
+                <div>
+                  <div class="header-debate-card">
+                    <div class="tag-names">
+                      <% debate.tag_list.each do |tag_name| %>
+                        <div class="blue-tag">
+                          <p><%= tag_name  %></p>
+                        </div>
+                      <% end %>
+                    </div>
+                    <div class="debate-header-picture">
+                      <%= image_tag "blitz.png" %>
+                      <%= debate.arguments.count %>
+                    </div>
+                  </div>
+                  <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
+                  <p class="debate-card-text"><%=  debate.description %></p>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+              <%= link_to debate_path(debate.id), class: "text" do %>
+                <div class="debate-card">
+                  <div>
+                    <div class="header-debate-card">
+                      <div class="tag-names">
+                        <% debate.tag_list.each do |tag_name| %>
+                          <div class="blue-tag">
+                            <p><%= tag_name  %></p>
+                          </div>
+                        <% end %>
+                      </div>
+                      <div class="debate-header-picture">
+                        <%= image_tag "blitz.png" %>
+                        <%= debate.arguments.count %>
+                      </div>
+                    </div>
+                    <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
+                    <p class="debate-card-text"><%=  debate.description %></p>
+                  </div>
+                </div>
+              <% end %>
+          <% end %>
+        <% end %>
+    </div>
+
+    <div class="firsth">
+      <H1><strong>Your likes</strong></H1>
+    </div>
+
+    <div class="yourdebates">
+      <% current_user.your_likes.each do |debate| %>
+          <% if debate.arguments.count > 0 %>
+            <%= link_to debate_arguments_path(debate.id), class: "text" do %>
+              <div class="debate-card">
+                <div>
+                  <div class="header-debate-card">
+                    <div class="tag-names">
+                      <% debate.tag_list.each do |tag_name| %>
+                        <div class="blue-tag">
+                          <p><%= tag_name  %></p>
+                        </div>
+                      <% end %>
+                    </div>
+                    <div class="debate-header-picture">
+                      <%= image_tag "blitz.png" %>
+                      <%= debate.arguments.count %>
+                    </div>
+                  </div>
+                  <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
+                  <p class="debate-card-text"><%=  debate.description %></p>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+              <%= link_to debate_path(debate.id), class: "text" do %>
+                <div class="debate-card">
+                  <div>
+                    <div class="header-debate-card">
+                      <div class="tag-names">
+                        <% debate.tag_list.each do |tag_name| %>
+                          <div class="blue-tag">
+                            <p><%= tag_name  %></p>
+                          </div>
+                        <% end %>
+                      </div>
+                      <div class="debate-header-picture">
+                        <%= image_tag "blitz.png" %>
+                        <%= debate.arguments.count %>
+                      </div>
+                    </div>
+                    <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
+                    <p class="debate-card-text"><%=  debate.description %></p>
+                  </div>
+                </div>
+              <% end %>
+          <% end %>
+        <% end %>
+    </div>
   </div>
