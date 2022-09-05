@@ -18,3 +18,6 @@ application.register("searchbar", SearchbarController)
 
 import TweetController from "./tweet_controller"
 application.register("tweet", TweetController)
+
+import UserdebatesearchController from "./userdebatesearch_controller"
+application.register("userdebatesearch", UserdebatesearchController)
