@@ -1,0 +1,115 @@
+.makeitcentered {
+  justify-content: center;
+  display: flex;
+
+}
+
+.profilecard {
+
+justify-content: center;
+display: flex;
+
+}
+
+.profile-icon {
+  border-radius: 50%;
+  height: 160px;
+  width: 160px;
+text-align: center;
+justify-content: center;
+display: flex;
+color: #1EA5FC;
+fill: #1EA5FC;
+
+}
+
+.username {
+  font-weight: bold;
+  color: #031827;
+
+ font-size: 20px;
+ text-align: center;
+ margin-top: 20px;
+ margin-bottom: 20px;
+}
+
+.useremail {
+  font-weight: bold;
+  color: #031827;
+  padding-left: 30px;
+}
+
+.userlocation {
+  font-weight: bold;
+  color: #031827;
+  padding-left: 30px;
+
+}
+
+.user-interessts-string {
+  font-weight: bold;
+  color: #031827;
+  padding-left: 30px;
+}
+
+.rank {
+  font-weight: bold;
+  color: #031827;
+  padding-left: 30px;
+}
+
+.grid-container-profile {
+  display: grid;
+  grid-template-columns: 400px auto;
+  // grid-template-rows: max-content;
+  width: 100%;
+  grid-gap: 75px;
+  background-color: #fff;
+  height: 100%;
+}
+
+.leftside {
+  width: 40%;
+}
+
+.profilecard {
+
+  width: 330px;
+  height: auto;
+  padding: 10px;
+  margin-bottom: 15px;
+  margin-left: 30px;
+  border-radius: 5px;
+  border: 2px solid $custom-background;
+  display: block;
+  justify-content: center;
+}
+
+.profileheader {
+  justify-content: center;
+  display: flex;
+}
+
+.rightside {
+
+  text-align: right;
+}
+.h1 {
+  text-align:center;
+  justify-content: center;
+display: flex;
+}
+
+.firsth {
+  margin-top: 10px ;
+  margin-bottom: 10px;
+  text-align:center;
+  justify-content: center;
+display: flex;
+
+}
+
+.yourdebates {
+display: grid;
+  justify-content: center;
+}
