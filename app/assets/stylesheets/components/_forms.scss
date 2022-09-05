@@ -1,0 +1,61 @@
+fieldset {
+  padding: 0em 0em;
+  border: none;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+.form-check {
+  background-color: $custom-primary;
+  padding: 5px 10px 5px 10px;
+  border: none;
+  border-radius: 30px;
+  margin-right: 15px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  align-content: center;
+  width: auto;
+
+ label {
+  color: white;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 12px;
+  font-weight: 600;
+ }
+
+ .form-check-input {
+  border-radius: 0em;
+  margin-left: auto;
+  margin-top: 0em;
+  margin-right: 5px;
+ }
+ }
+
+ .debate_title{
+  height: 100px;
+  .form-control {
+    min-height: 100px;
+  }
+ }
+
+ .debate_description{
+  height: 200px;
+  .form-control {
+    min-height: 200px;
+  }
+ }
+
+ .argument_content {
+  width: 80%;
+  margin-bottom: 0rem !important;
+  .form-control {
+    width: 100%;
+    height: 80%;
+    padding: 0rem 0rem;
+  }
+ }

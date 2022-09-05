@@ -1,6 +1,6 @@
 <div class="d-none searchbar-wrapper" data-searchbar-target="searchbarform">
     <%= form_with url: debates_path, method: :get, data: { action: "keyup->searchbar#searchFunction", searchbar_target: "formQuery" } do |f| %>
-     <%= f.text_field  :query, class: 'searchquery' , placeholder:"find your debate...", data: { searchbar_target: "searchInput" }, autofocus: true%>
+     <%= f.text_field  :query, class: 'searchquery' , placeholder:"find a debate...", data: { searchbar_target: "searchInput" }, autofocus: true%>
      <% end %>
 </div>
 

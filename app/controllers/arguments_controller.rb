@@ -14,6 +14,12 @@ class ArgumentsController < ApplicationController
     @argument.user = current_user
     @argument.debate = Debate.find(params[:debate_id])
 
+    if params[:commit] == 'Pro'
+      @argument.perspective_pro = true
+    elsif params[:commit] == 'Con'
+      @argument.perspective_pro = false
+    end
+
     if @argument.save
       redirect_to debate_path(@argument.debate_id)
     else
