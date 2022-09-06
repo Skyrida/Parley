@@ -6,7 +6,19 @@ class DebatesController < ApplicationController
   def index
     @global_ideas = TwitterApiService.new.client.trends(id = 1, options = { exclude: "hashtags" })
     @local_ideas = TwitterApiService.new.client.trends(id = 1044316, options = { exclude: "hashtags" })
-    if params[:query]
+    if params[:query].present? && params[:mine].present?
+      @tags = (current_user.your_debates + current_user.your_arguemtens + current_user.your_likes).select { |debate| debate.tag_list.map(&:downcase).include?(params[:query].downcase) }.to_a
+      @titles = Debate.search_by_title_and_taglist(params[:query]).to_a.select do |debate|
+      current_user.your_debates.include?(debate) || current_user.your_arguemtens.include?(debate) || current_user.your_likes.include?(debate)
+      end
+      @tags << @titles
+      @debates = @tags.flatten.uniq
+    elsif !params[:query].present? && params[:mine].present?
+      @tags = (current_user.your_debates + current_user.your_arguemtens + current_user.your_likes).to_a
+      @titles = Debate.search_by_title_and_taglist(params[:query]).to_a
+      @tags << @titles
+      @debates = @tags.flatten.uniq
+    elsif params[:query]
       @tags = Debate.select { |debate| debate.tag_list.map(&:downcase).include?(params[:query].downcase) }.to_a
       @titles = Debate.search_by_title_and_taglist(params[:query]).to_a
       @tags << @titles
@@ -26,6 +38,8 @@ class DebatesController < ApplicationController
     elsif params[:category] == "con"
       @arguments = @debate.arguments.where(perspective_pro: false)
     end
+
+    # @arguments = @arguments.where(comment_swipe_users: { argument_agree: true }).order(comment_swipe_users_count: :DESC)
   end
 
   def new
@@ -55,14 +69,12 @@ class DebatesController < ApplicationController
       @my_chat = current_user.chatrooms_against.find_by(status_active: true)
     end
 
-
     if @my_chat
       respond_to do |format|
         format.html { redirect_to chatroom_path(@my_chat) }
         format.json
       end
     else
-      # stimulus
       respond_to do |format|
         format.html
         format.json

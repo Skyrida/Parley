@@ -10,8 +10,8 @@ class Debate < ApplicationRecord
   acts_as_taggable_on :tags
 
   pg_search_scope :search_by_title_and_taglist,
-  against: [ [:title, 'B'] ],
+  against: [ :title ],
   using: {
-    tsearch: { prefix: true, dictionary: "english", any_word: true }
+    tsearch: { prefix: true, any_word: true }
   }
 end

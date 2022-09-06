@@ -27,3 +27,6 @@ application.register("tweet", TweetController)
 
 import UserdebatesearchController from "./userdebatesearch_controller"
 application.register("userdebatesearch", UserdebatesearchController)
+
+import WaitForChatController from "./wait_for_chat_controller"
+application.register("wait-for-chat", WaitForChatController)
