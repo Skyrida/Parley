@@ -1,6 +1,113 @@
-<div class="main-banner">
-  <h2>open our mind</h2>
-  <%= image_tag("push-down-arrow-white.png", class: "banner-arrow")%>
+<div data-controller="topicbanner">
+  <div class="main-banner-home" data-topicbanner-target="mainBanner">
+    <h2 data-topicbanner-target="mainHeader">open our mind</h2>
+      <div>
+        <h3 class="main-topic-title banner-none" data-topicbanner-target="secondHeader">Hot topics on <i class="fa-brands fa-twitter"></i></h3>
+      </div>
+      <div class="main-container-block banner-none" data-topicbanner-target="topics" style="background-color:rgba(1,1,1,.0); margin-top:0px; margin-bottom:0px">
+        <div class="wrapper">
+          <div class="grid-title left-banner-grid">
+            <h3 style="color:white; margin-bottom:0rem">Globally</h3>
+            <%= image_tag("blitz.png", class: "topic-icon", style: "margin-left:2px") %>
+          </div>
+          <div class="grid-title right-banner-grid">
+            <h3 style="color:white; margin-bottom:0rem">Locally</h3>
+            <%= image_tag("blitz.png", class: "topic-icon", style: "margin-left:2px") %>
+          </div>
+          <div class="grid-one left-banner-grid">
+            <div class="topic-card">
+              <p><%= @global_ideas.map{|tweet| tweet.name }[0] %></p>
+              <div class="topic-icons">
+                <%= image_tag("search-icon.png", class: "topic-icon") %>
+                <%= image_tag("create-debate-icon.png", class: "topic-icon") %>
+              </div>
+            </div>
+          </div>
+          <div class="grid-one right-banner-grid">
+            <div class="topic-card">
+              <p><%= @local_ideas.map{|tweet| tweet.name }[0] %></p>
+              <div class="topic-icons">
+                <%= image_tag("search-icon.png", class: "topic-icon") %>
+                <%= image_tag("create-debate-icon.png", class: "topic-icon") %>
+              </div>
+            </div>
+          </div>
+          <div class="grid-two left-banner-grid">
+            <div class="topic-card">
+              <p><%= @global_ideas.map{|tweet| tweet.name }[1] %></p>
+              <div class="topic-icons">
+                <%= image_tag("search-icon.png", class: "topic-icon") %>
+                <%= image_tag("create-debate-icon.png", class: "topic-icon") %>
+              </div>
+            </div>
+          </div>
+          <div class="grid-two right-banner-grid">
+            <div class="topic-card">
+              <p><%= @local_ideas.map{|tweet| tweet.name }[1] %></p>
+              <div class="topic-icons">
+                <%= image_tag("search-icon.png", class: "topic-icon") %>
+                <%= image_tag("create-debate-icon.png", class: "topic-icon") %>
+              </div>
+            </div>
+          </div>
+          <div class="grid-three left-banner-grid">
+            <div class="topic-card">
+              <p><%= @global_ideas.map{|tweet| tweet.name }[2] %></p>
+              <div class="topic-icons">
+                <%= image_tag("search-icon.png", class: "topic-icon") %>
+                <%= image_tag("create-debate-icon.png", class: "topic-icon") %>
+              </div>
+            </div>
+          </div>
+          <div class="grid-three right-banner-grid">
+            <div class="topic-card">
+              <p><%= @local_ideas.map{|tweet| tweet.name }[2] %></p>
+              <div class="topic-icons">
+                <%= image_tag("search-icon.png", class: "topic-icon") %>
+                <%= image_tag("create-debate-icon.png", class: "topic-icon") %>
+              </div>
+            </div>
+          </div>
+          <div class="grid-four left-banner-grid">
+            <div class="topic-card">
+              <p><%= @global_ideas.map{|tweet| tweet.name }[3] %></p>
+              <div class="topic-icons">
+                <%= image_tag("search-icon.png", class: "topic-icon") %>
+                <%= image_tag("create-debate-icon.png", class: "topic-icon") %>
+              </div>
+            </div>
+          </div>
+          <div class="grid-four right-banner-grid">
+            <div class="topic-card">
+              <p><%= @local_ideas.map{|tweet| tweet.name }[3] %></p>
+              <div class="topic-icons">
+                <%= image_tag("search-icon.png", class: "topic-icon") %>
+                <%= image_tag("create-debate-icon.png", class: "topic-icon") %>
+              </div>
+            </div>
+          </div>
+          <div class="grid-five left-banner-grid">
+            <div class="topic-card">
+              <p><%= @global_ideas.map{|tweet| tweet.name }[4] %></p>
+              <div class="topic-icons">
+                <%= image_tag("search-icon.png", class: "topic-icon") %>
+                <%= image_tag("create-debate-icon.png", class: "topic-icon") %>
+              </div>
+            </div>
+          </div>
+          <div class="grid-five right-banner-grid">
+            <div class="topic-card">
+              <p><%= @local_ideas.map{|tweet| tweet.name }[4] %></p>
+              <div class="topic-icons">
+                <%= image_tag("search-icon.png", class: "topic-icon") %>
+                <%= image_tag("create-debate-icon.png", class: "topic-icon") %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%= image_tag("push-down-arrow-white.png", class: "banner-arrow", data: { action: "click->topicbanner#appear", topicbanner_target:"movingArrow"})%>
+  </div>
 </div>
 <div class="main-container-block">
   <div class="index-page-card">
