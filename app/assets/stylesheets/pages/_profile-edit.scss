@@ -110,8 +110,10 @@ display: flex;
 }
 
 .yourdebates {
-display: grid;
+display: block;
   justify-content: center;
+
+
 }
 
 .profilesearch {
@@ -142,4 +144,14 @@ margin-bottom: 10px;
 .pleasestay {
   display: grid;
   justify-content: center;
+}
+.intrest-tags {
+  display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-evenly;
+    align-items: stretch;
+    width: 100%;
+    margin: 10px;
 }

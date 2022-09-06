@@ -11,7 +11,7 @@ export default class extends Controller {
 
   searchFunction(event) {
       console.log("in search")
-      const url = `${this.formQueryTarget.action}?title=${event.target.value}`
+      const url = `${this.formQueryTarget.action}?query=${event.target.value}&mine=true`
       event.preventDefault()
       fetch(url, {
         headers: { "Accept": "application/json" },
