@@ -5,7 +5,7 @@ class Debate < ApplicationRecord
   has_many :arguments
   has_many :users, through: :arguments
 
-  validates :title, presence: true, uniqueness: true, length: { in: 2..101 }
+  validates :title, presence: true, length: { in: 2..101 }
   validates :description, length: { maximum: 201 }
   acts_as_taggable_on :tags
 
