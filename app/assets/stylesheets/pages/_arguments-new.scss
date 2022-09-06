@@ -1,8 +1,19 @@
 .simple-form-custom-argument {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin-top: 50px;
+}
+
+.argument-content-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  p {
+    margin-top: 10px;
+  }
 }
 
 .argument-content-input textarea {

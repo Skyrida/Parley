@@ -9,14 +9,17 @@
       <% end %>
     </div>
   </div>
-  <h2>Create an argument</h2>
-  <%= simple_form_for [@debate, @argument] do |f| %>
-    <div class= "swiper-card argument-content-input <%=["swiper-card-1", "swiper-card-2", "swiper-card-3", "swiper-card-4", "swiper-card-5", "swiper-card-6"].sample%>" >
-      <%= f.input :content, label: false, placeholder: 'Argument', error: 'Argument is mandatory' %>
-    </div>
-    <div class="simple-form-custom-argument">
-      <%= f.input :perspective_pro, as: :radio_buttons, label: false, collection: [['Pro', 'true'], ['Con', 'false']] %>
-      <%= f.button :submit, class:"button-secondary" %>
-    </div>
-  <% end %>
+  <div data-controller="argumentwords">
+    <%= simple_form_for [@debate, @argument] do |f| %>
+      <div class= "swiper-card argument-content-input <%=["swiper-card-1", "swiper-card-2", "swiper-card-3", "swiper-card-4", "swiper-card-5", "swiper-card-6"].sample%>", style="margin-top:30px" >
+        <%= f.input :content, label: false, placeholder: 'Argument', input_html: { "data-argumentwords-target": "descriptionContent", "data-action": "keyup->argumentwords#change" }, as: :text %>
+        <p data-argumentwords-target="descriptionOutput" class="counter-text"></p>
+      </div>
+      <div class="simple-form-custom-argument", style="display:flex; justify-content:space-evenly, margin: bottom 30px">
+        <%#= f.input :perspective_pro, as: :radio_buttons, label: false, collection: [['Pro', 'true'], ['Con', 'false']] %>
+        <%= f.button :submit, value: "Con", class:"button-disagree-full", style:"width:47.5%" %>
+        <%= f.button :submit, value: "Pro", class:"button-agree-full", style:"width:47.5%" %>
+      </div>
+    <% end %>
+  </div>
 </div>

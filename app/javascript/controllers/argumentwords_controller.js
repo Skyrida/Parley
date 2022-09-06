@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
-   static targets = ["titleContent", "titleOutput", "descriptionContent", "descriptionOutput"]
+   static targets = ["descriptionContent", "descriptionOutput"]
   // static classes = [ "overLimit" ]
   // static values = {
    //  characterCount: Number,
@@ -11,16 +11,6 @@ export default class extends Controller {
   }
 
   change() {
-    const titleInputLength = this.titleContentTarget.value.length
-
-    if (titleInputLength > 100) {
-      this.titleOutputTarget.innerHTML = `${titleInputLength} characters: Too many!`
-      this.titleOutputTarget.style.color = "red"
-    } else {
-      this.titleOutputTarget.innerHTML = `${titleInputLength} characters`
-      this.titleOutputTarget.style.color = "lightgray"
-    }
-
     const descriptionInputLength = this.descriptionContentTarget.value.length
 
     if (descriptionInputLength > 200) {

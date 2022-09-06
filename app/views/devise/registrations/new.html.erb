@@ -1,7 +1,12 @@
-<div class="main-container-block">
+<div class="main-banner">
   <h2>Sign up</h2>
+  <p style="color:white">open our mind</p>
+</div>
 
-  <% topics = ["Politics", "Sport", "Environment", "Transport", "Religion", "Abortion", "US Politics", "Taboo", "Football", "Food", "Animals", "Technology", "Philosophy", "Narcotics", "Ethics", "Money", "Music", "TV", "Movies", "Art"] %>
+<div class="main-container-block">
+
+  <% topics = ["Politics", "Sport", "Environment", "Transport", "Religion", "Abortion", "US Politics", "Taboo", "Football", "Food", "Animals", "Technology", "Philosophy", "Drugs", "Ethics", "Money", "Music", "TV", "Movies", "Art", "UK Politics"] %>
+  <% countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyz Republic","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius","Mexico","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Namibia","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre &amp; Miquelon","Samoa","San Marino","Satellite","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","St Kitts &amp; Nevis","St Lucia","St Vincent","St. Lucia","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad &amp; Tobago","Tunisia","Turkey","Turkmenistan","Turks &amp; Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom","Uruguay","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"]; %>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
     <%= f.error_notification %>
@@ -9,45 +14,66 @@
     <div class="form-inputs">
       <%= f.input :username,
                   required: true,
+                  label: false,
+                  placeholder: "Username *",
                   autofocus: true,
                   input_html: { autocomplete: "username" } %>
       <%= f.input :first_name,
                   required: true,
+                  label: false,
+                  placeholder: "First name *",
                   input_html: { autocomplete: "first_name" } %>
       <%= f.input :last_name,
                   required: true,
+                  label: false,
+                  placeholder: "Last name *",
                   input_html: { autocomplete: "last_name" } %>
+      <%= f.input :password,
+                  label: false,
+                  placeholder: "Password *",
+                  required: true,
+                  #hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  label: false,
+                  placeholder: "Confirm password *",
+                  required: true,
+                  input_html: { autocomplete: "new-password" } %>
       <%= f.input :email,
                   required: true,
+                  label: false,
+                  placeholder: "Email *",
                   input_html: { autocomplete: "email" } %>
       <%= f.input :location,
-                  as: :country,
+                  as: :select,
+                  multiple: true,
+                  collection: countries,
+                  label: "Country",
+                  #as: :country,
                   #{ priority_countries: ["AU", "CN", "GB", "ID", "US"], selected: :location },
                   #{ label: false, prompt: "Select participation country" },
                   required: true %>
       <%= f.input :gender,
                   as: :select,
                   collection: ["Male", "Female", "Other"],
+                  label: "Gender",
                   required: true %>
       <%= f.input :image,
-                  as: :file %>
+                  as: :file,
+                  label: "Profile picture" %>
       <%= f.input :tags,
-                  as: :select,
+                  as: :check_boxes,
                   multiple: true,
-                  collection: topics %>
-      <%= f.input :password,
-                  required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: true,
-                  input_html: { autocomplete: "new-password" } %>
+                  collection: topics,
+                  label: "Follow some tags!" %>
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up" %>
+    <div class="form-actions", style="justify-content:center; display:flex">
+      <%= f.button :submit, "Sign up", class: "button-primary" %>
     </div>
   <% end %>
 
-  <%= render "devise/shared/links" %>
+  <div style="justify-content:center; display:flex">
+    <%= render "devise/shared/links" %>
+  </div>
 </div>

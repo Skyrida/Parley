@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ArgumentwordsController from "./argumentwords_controller"
+application.register("argumentwords", ArgumentwordsController)
+
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
