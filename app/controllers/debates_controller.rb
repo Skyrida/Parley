@@ -51,14 +51,12 @@ class DebatesController < ApplicationController
       @my_chat = current_user.chatrooms_against.find_by(status_active: true)
     end
 
-
     if @my_chat
       respond_to do |format|
         format.html { redirect_to chatroom_path(@my_chat) }
         format.json
       end
     else
-      # stimulus
       respond_to do |format|
         format.html
         format.json
