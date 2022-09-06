@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <% @arguments.each do |argument| %>
+  <% @arguments.order(comment_swipe_users_count: :desc).each do |argument| %>
     <div class="argument-card">
       <p><%= argument.content %></p>
       <% like_exist = argument.comment_swipe_users.find_by(user: current_user) %>

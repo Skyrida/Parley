@@ -46,14 +46,14 @@ end
 debates.each do |debate|
   6.times do
     argument_for = Argument.new(
-      content: Faker::Lorem.paragraph_by_chars(number: 250, supplemental: false),
+      content: Faker::Lorem.paragraph_by_chars(number: 190, supplemental: false),
       user_id: User.first.id,
       debate_id: debate.id,
       perspective_pro: true
     )
     argument_for.save!
     argument_against = Argument.new(
-      content: Faker::Lorem.paragraph_by_chars(number: 250, supplemental: false),
+      content: Faker::Lorem.paragraph_by_chars(number: 190, supplemental: false),
       user_id: User.last.id,
       debate_id: debate.id,
       perspective_pro: false
@@ -61,32 +61,3 @@ debates.each do |debate|
     argument_against.save!
   end
 end
-
-# chatroom = Chatroom.new(
-#   debate_id: Debate.first.id,
-#   user_for_id: User.first.id,
-#   user_against_id: User.last.id
-# )
-# chatroom.save!
-
-# 5.times do
-#   message = Message.new(
-#     chatroom_id: chatroom.id,
-#     comment: Faker::Lorem.paragraph_by_chars(number: 150, supplemental: false),
-#     user_id: User.first.id
-#   )
-#   message.save!
-#   response = Message.new(
-#     chatroom_id: chatroom.id,
-#     comment: Faker::Lorem.paragraph_by_chars(number: 150, supplemental: false),
-#     user_id: User.last.id
-#   )
-#   response.save!
-#   reflection = Reflection.new(
-#     chatroom_id: chatroom.id,
-#     user_id: User.first.id,
-#     debate_chat_score: rand(1..10),
-#     conclusion: Faker::Lorem.paragraph_by_chars(number: 50, supplemental: false)
-#   )
-#   reflection.save!
-# end

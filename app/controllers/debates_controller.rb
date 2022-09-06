@@ -22,6 +22,8 @@ class DebatesController < ApplicationController
     elsif params[:category] == "con"
       @arguments = @debate.arguments.where(perspective_pro: false)
     end
+
+    # @arguments = @arguments.where(comment_swipe_users: { argument_agree: true }).order(comment_swipe_users_count: :DESC)
   end
 
   def new
