@@ -34,6 +34,8 @@ class DebatesController < ApplicationController
     elsif params[:category] == "con"
       @arguments = @debate.arguments.where(perspective_pro: false)
     end
+
+    # @arguments = @arguments.where(comment_swipe_users: { argument_agree: true }).order(comment_swipe_users_count: :DESC)
   end
 
   def new
@@ -63,14 +65,12 @@ class DebatesController < ApplicationController
       @my_chat = current_user.chatrooms_against.find_by(status_active: true)
     end
 
-
     if @my_chat
       respond_to do |format|
         format.html { redirect_to chatroom_path(@my_chat) }
         format.json
       end
     else
-      # stimulus
       respond_to do |format|
         format.html
         format.json

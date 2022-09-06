@@ -10,6 +10,14 @@ class ChatroomsController < ApplicationController
 
   def create
     @debate = Debate.find(params[:debate_id])
+
+    # Deactivate user looking for chatroom
+    current_user.looking_for_chatroom = false
+    current_user.save
+    # Deactivate all the chatrooms related to the user
+    current_user.chatrooms_against.update(status_active: false)
+    current_user.chatrooms_for.update(status_active: false)
+
     @waiting_for_chat = @debate.users.where(looking_for_chatroom: true).where.not(id: current_user.id)
 
     if @waiting_for_chat.count < 1
