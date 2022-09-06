@@ -33,8 +33,8 @@ debates = []
 users.each do |user|
   3.times do
     debate = Debate.new(
-      title: Faker::Lorem.paragraph_by_chars(number: 50, supplemental: false),
-      description: Faker::Lorem.paragraph_by_chars(number: 200, supplemental: false),
+      title: Faker::Lorem.paragraph_by_chars(number: 49, supplemental: false),
+      description: Faker::Lorem.paragraph_by_chars(number: 199, supplemental: false),
       user_id: user.id
     )
     debate.tag_list.add("awesome", "fake")

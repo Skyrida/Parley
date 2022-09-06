@@ -40,11 +40,13 @@
 <div class="d-flex">
   <div class="user-interessts">
    <p class="leftside"><strong><em>Interests:</em></strong></p>
-              <% current_user.tag_list.each do |tag_name| %>
+   <div class="intrest-tags">
+              <% current_user.tags.each do |tag_name| %>
                     <div class="blue-tag">
                       <p><%= tag_name  %></p>
                     </div>
                   <% end %>
+  </div>
   </div>
   </div>
 
@@ -66,7 +68,7 @@
       <% end %>
     </div>
   </div>
-
+<div class= "main-container-block"></div>
   <div data-userdebatesearch-target="debatesCards">
     <div class="yourdebates">
       <% current_user.your_debates.each do |debate| %>
@@ -225,4 +227,5 @@
           <% end %>
         <% end %>
     </div>
+  </div>
   </div>

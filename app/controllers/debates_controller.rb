@@ -2,7 +2,19 @@ class DebatesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:query]
+    if params[:query].present? && params[:mine].present?
+      @tags = (current_user.your_debates + current_user.your_arguemtens + current_user.your_likes).select { |debate| debate.tag_list.map(&:downcase).include?(params[:query].downcase) }.to_a
+      @titles = Debate.search_by_title_and_taglist(params[:query]).to_a.select do |debate|
+      current_user.your_debates.include?(debate) || current_user.your_arguemtens.include?(debate) || current_user.your_likes.include?(debate)
+      end
+      @tags << @titles
+      @debates = @tags.flatten.uniq
+    elsif !params[:query].present? && params[:mine].present?
+      @tags = (current_user.your_debates + current_user.your_arguemtens + current_user.your_likes).to_a
+      @titles = Debate.search_by_title_and_taglist(params[:query]).to_a
+      @tags << @titles
+      @debates = @tags.flatten.uniq
+    elsif params[:query]
       @tags = Debate.select { |debate| debate.tag_list.map(&:downcase).include?(params[:query].downcase) }.to_a
       @titles = Debate.search_by_title_and_taglist(params[:query]).to_a
       @tags << @titles
