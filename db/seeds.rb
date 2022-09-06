@@ -33,8 +33,8 @@ debates = []
 users.each do |user|
   3.times do
     debate = Debate.new(
-      title: Faker::Lorem.paragraph_by_chars(number: 50, supplemental: false),
-      description: Faker::Lorem.paragraph_by_chars(number: 200, supplemental: false),
+      title: Faker::Lorem.paragraph_by_chars(number: 49, supplemental: false),
+      description: Faker::Lorem.paragraph_by_chars(number: 199, supplemental: false),
       user_id: user.id
     )
     debate.tag_list.add("awesome", "fake")
@@ -46,14 +46,14 @@ end
 debates.each do |debate|
   6.times do
     argument_for = Argument.new(
-      content: Faker::Lorem.paragraph_by_chars(number: 250, supplemental: false),
+      content: Faker::Lorem.paragraph_by_chars(number: 199, supplemental: false),
       user_id: User.first.id,
       debate_id: debate.id,
       perspective_pro: true
     )
     argument_for.save!
     argument_against = Argument.new(
-      content: Faker::Lorem.paragraph_by_chars(number: 250, supplemental: false),
+      content: Faker::Lorem.paragraph_by_chars(number: 199, supplemental: false),
       user_id: User.last.id,
       debate_id: debate.id,
       perspective_pro: false
