@@ -58,10 +58,10 @@
                   collection: ["Male", "Female", "Other"],
                   label: "Gender",
                   required: true %>
-      <%= f.input :image,
+      <%= f.input :photo,
                   as: :file,
                   label: "Profile picture" %>
-      <%= f.input :tags,
+      <%= f.input :tag_list,
                   as: :check_boxes,
                   multiple: true,
                   collection: topics,
