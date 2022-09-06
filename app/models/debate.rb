@@ -5,8 +5,8 @@ class Debate < ApplicationRecord
   has_many :arguments
   has_many :users, through: :arguments
 
-  validates :title, presence: true, uniqueness: true, length: { in: 2..100 }
-  validates :description, length: { maximum: 200 }
+  validates :title, presence: true, uniqueness: true, length: { in: 2..101 }
+  validates :description, length: { maximum: 201 }
   acts_as_taggable_on :tags
 
   pg_search_scope :search_by_title_and_taglist,
