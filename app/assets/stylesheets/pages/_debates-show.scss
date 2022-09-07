@@ -52,6 +52,7 @@
 
 .debate-buttons-container-grey {
   background-color: rgba($color: #E4EEF5, $alpha: 0.7);
+  backdrop-filter: blur(5px);
 }
 
 .debate-buttons-container-white {
