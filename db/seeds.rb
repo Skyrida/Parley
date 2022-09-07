@@ -175,21 +175,87 @@ debate_content.each do |debate|
   debates << debate
 end
 
+# debates.each do |debate|
+#   4.times do
+#     argument_for = Argument.new(
+#       content: Faker::Lorem.paragraph_by_chars(number: 190, supplemental: false),
+#       user_id: User.first.id,
+#       debate_id: debate.id,
+#       perspective_pro: true
+#     )
+#     argument_for.save!
+#     argument_against = Argument.new(
+#       content: Faker::Lorem.paragraph_by_chars(number: 190, supplemental: false),
+#       user_id: User.last.id,
+#       debate_id: debate.id,
+#       perspective_pro: false
+#     )
+#     argument_against.save!
+#   end
+# end
+
 debates.each do |debate|
-  4.times do
-    argument_for = Argument.new(
-      content: Faker::Lorem.paragraph_by_chars(number: 190, supplemental: false),
-      user_id: User.first.id,
-      debate_id: debate.id,
-      perspective_pro: true
-    )
-    argument_for.save!
-    argument_against = Argument.new(
-      content: Faker::Lorem.paragraph_by_chars(number: 190, supplemental: false),
-      user_id: User.last.id,
-      debate_id: debate.id,
-      perspective_pro: false
-    )
-    argument_against.save!
-  end
+  argument_for1 = Argument.new(
+    content: "This thesis must be true as the statistics show it as such",
+    user_id: User.first.id,
+    debate_id: debate.id,
+    perspective_pro: true
+  )
+  argument_for1.save!
+
+  argument_against1 = Argument.new(
+    content: "Not true, the way that the data is collected is completely unfair and unjust",
+    user_id: User.last.id,
+    debate_id: debate.id,
+    perspective_pro: false
+  )
+  argument_against1.save!
+
+  argument_for2 = Argument.new(
+    content: "I feel strongly pro about this given that I have had first hand experience with the situation",
+    user_id: User.first.id,
+    debate_id: debate.id,
+    perspective_pro: true
+  )
+  argument_for2.save!
+
+  argument_against2 = Argument.new(
+    content: "I'd argue that that's a leading question and it's misdirecting people's opinions on the matter",
+    user_id: User.last.id,
+    debate_id: debate.id,
+    perspective_pro: false
+  )
+  argument_against2.save!
+
+  argument_for3 = Argument.new(
+    content: "The law is clear on the subject, and one should always follow what the law says",
+    user_id: User.first.id,
+    debate_id: debate.id,
+    perspective_pro: true
+  )
+  argument_for3.save!
+
+  argument_against3 = Argument.new(
+    content: "The statistics show this thesis to be a complete falsehood",
+    user_id: User.last.id,
+    debate_id: debate.id,
+    perspective_pro: false
+  )
+  argument_against3.save!
+
+  argument_for4 = Argument.new(
+    content: "The cost of such a thing is fairly minimal and so should strongly be considered",
+    user_id: User.first.id,
+    debate_id: debate.id,
+    perspective_pro: true
+  )
+  argument_for4.save!
+
+  argument_against4 = Argument.new(
+    content: "This should be an issue for the individual to decide, and not one taken by a collective party",
+    user_id: User.last.id,
+    debate_id: debate.id,
+    perspective_pro: false
+  )
+  argument_against4.save!
 end
