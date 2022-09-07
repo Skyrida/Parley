@@ -59,7 +59,13 @@ export default class extends Carousel {
 
           const activeSlide = e.slides[e.previousIndex]
           const agreeButton = activeSlide.querySelector(".agree")
-          agreeButton.click()
+          const csrfToken = document.querySelector("[name='csrf-token']").content
+          fetch(agreeButton.href, {
+            headers: {Accept: "application/json", "X-CSRF-Token": csrfToken},
+            method: "POST",
+          })
+
+
 
           if (!e.isEnd) {
             e.removeSlide(e.realIndex - 1);

@@ -3,10 +3,13 @@ class CommentSwipeUsersController < ApplicationController
     @like_function = CommentSwipeUser.new(argument_id: params[:argument_id], user: current_user, argument_agree: true)
     @debate = @like_function.argument.debate
 
-    if @like_function.save!
-      redirect_to request.referer
-    else
+    respond_to do |format|
+      if @like_function.save!
+        format.html { redirect_to request.referer }
+        format.json { render json: :ok }
+      else
 
+      end
     end
   end
 
