@@ -9,47 +9,22 @@
       <% end %>
     </div>
   </div>
-  <div id="carouselExampleControls" class="carousel slide" data-bs-interval="false">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class= "swiper-card <%=["swiper-card-1", "swiper-card-2", "swiper-card-3", "swiper-card-4", "swiper-card-5", "swiper-card-6"].sample%>" >
-        <p><%= @arguments.first.content %></p>
-        <div class="debate-buttons-container">
-          <div class="debate-procon-container">
-            <div data-bs-target="#carouselExampleControls" data-bs-slide="next" class="button-disagree">Disagree</div>
-            <div data-bs-target="#carouselExampleControls" data-bs-slide="next" class="button-agree">Agree</div>
-          </div>
-          <div class="debate-adddebate-container">
-            <%= link_to "Continue to the debate", debate_path(@arguments.first.debate_id), class: "button-secondary" %>
-          </div>
-        </div>
-      </div>
-    </div>
-    <% @arguments.drop(1).each do |argument| %>
-      <div class="carousel-item">
-        <div class= "swiper-card <%=["swiper-card-1", "swiper-card-2", "swiper-card-3", "swiper-card-4", "swiper-card-5", "swiper-card-6"].sample%>" >
+  <div data-controller="swiper" class="swiper-container">
+    <div class="swiper-wrapper">
+      <% @arguments.each do |argument| %>
+        <div class= "swiper-slide swiper-card <%=["swiper-card-1", "swiper-card-2", "swiper-card-3", "swiper-card-4", "swiper-card-5", "swiper-card-6"].sample%>" >
           <p><%= argument.content %></p>
-        </div>
-        <div class="debate-buttons-container debate-buttons-container-white">
           <div class="debate-procon-container">
-            <div class="button-disagree" data-bs-target="#carouselExampleControls" data-bs-slide="next">Disagree</div>
-            <div data-bs-target="#carouselExampleControls" data-bs-slide="next" class="button-agree">Agree</div>
-          </div>
-          <div class="debate-adddebate-container">
-            <%= link_to "Continue to the debate", debate_path(@arguments.first.debate_id), class: "button-secondary" %>
+            <div class="button-disagree">Disagree</div>
+            <%= link_to argument_comment_swipe_users_path(argument), data: { turbo_method: :post }, class:"agree" do%>
+              <div class="button-agree">Agree</div>
+            <% end %>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <%# <span class="carousel-control-prev-icon" aria-hidden="true"></span> %>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <%# <span class="carousel-control-next-icon" aria-hidden="true"></span> %>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
+  <div class="debate-adddebate-container">
+    <%= link_to "Continue to the debate", debate_path(@arguments.first.debate_id), class: "button-secondary" %>
+  </div>
 </div>
