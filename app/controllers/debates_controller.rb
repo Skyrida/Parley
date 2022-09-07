@@ -4,8 +4,8 @@ class DebatesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @global_ideas = TwitterApiService.new.client.trends(id = 1, options = { exclude: "hashtags" })
-    @local_ideas = TwitterApiService.new.client.trends(id = 1044316, options = { exclude: "hashtags" })
+    @global_ideas = TwitterApiService.new.client.trends(id = 2459115, options = { exclude: "hashtags" })
+    @local_ideas = TwitterApiService.new.client.trends(id = 1047378, options = { exclude: "hashtags" })
     if params[:query].present? && params[:mine].present?
       @tags = (current_user.your_debates + current_user.your_arguemtens + current_user.your_likes).select { |debate| debate.tag_list.map(&:downcase).include?(params[:query].downcase) }.to_a
       @titles = Debate.search_by_title_and_taglist(params[:query]).to_a.select do |debate|
