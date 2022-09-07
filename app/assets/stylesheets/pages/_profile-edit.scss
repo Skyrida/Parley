@@ -1,6 +1,7 @@
 .makeitcentered {
   justify-content: center;
   display: flex;
+  justify-content: space-evenly;
 
 }
 
@@ -155,3 +156,23 @@ margin-bottom: 10px;
     width: 100%;
     margin: 10px;
 }
+
+.profile-button{
+  width: 120px;
+  height: 40px;
+  background-color: white;
+  border: 1px solid $custom-primary;
+  border-radius: 5px;
+  color: $custom-primary;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    margin: auto;
+  }
+ }
