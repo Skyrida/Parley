@@ -51,8 +51,8 @@
   </div>
 
   <div class="makeitcentered">
-  <button class="button-secondary" type="submit" style="width: auto;">Edit Profile</button>
-  <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "button-secondary", style:"width: 100%;" %>
+  <button class="profile-button" type="submit" style="width: 120px;">Edit Profile</button>
+  <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "profile-button", style:"width: 120px;" %>
 </div>
 </div>
 
@@ -60,7 +60,7 @@
   <H1><strong>Your debates</strong></H1>
 </div>
 
-<div data-controller="userdebatesearch" class="pleasestay">
+<div data-controller="userdebatesearch" class="main-container-block">
   <div class="profilesearch">
     <div  data-userdebatesearch-target="searchbarform">
       <%= form_with url: debates_path, data: { action: "keyup->userdebatesearch#searchFunction", userdebatesearch_target: "formQuery" } do |f| %>
