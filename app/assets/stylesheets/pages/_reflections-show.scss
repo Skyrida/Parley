@@ -3,7 +3,21 @@
 }
 
 .reflection-show-buttons {
-  margin-top: 15px;
+    width: 100%;
+    display: block;
+    justify-content: center;
+    padding: 15px;
+    position: fixed;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+}
+
+.reflection-show-buttons {
+  // margin-top: 15px;
 
   .button-primary {
     margin-bottom: 15px;
