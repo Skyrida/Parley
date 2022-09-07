@@ -19,6 +19,9 @@ application.register("home-intro", HomeIntroController)
 import SearchbarController from "./searchbar_controller"
 application.register("searchbar", SearchbarController)
 
+import SwiperController from "./swiper_controller"
+application.register("swiper", SwiperController)
+
 import TopicbannerController from "./topicbanner_controller"
 application.register("topicbanner", TopicbannerController)
 
