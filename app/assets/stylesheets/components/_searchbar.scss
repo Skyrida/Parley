@@ -42,3 +42,11 @@ fieldset {
 }
 
 // <%= image_tag("search-icon.png", class: "header-icon") %>
+.profilesearch {
+  form {
+    width: 100%;
+  }
+  .searchquery {
+    width: 100%;
+  }
+}
