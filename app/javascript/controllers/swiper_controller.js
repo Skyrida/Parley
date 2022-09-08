@@ -27,6 +27,14 @@ export default class extends Carousel {
             }
           }
 
+          const activeSlide = e.slides[e.previousIndex]
+          const agreeButton = activeSlide.querySelector(".agree")
+          const csrfToken = document.querySelector("[name='csrf-token']").content
+          fetch(agreeButton.href, {
+            headers: {Accept: "application/json", "X-CSRF-Token": csrfToken},
+            method: "POST",
+          })
+
           if (e.isBeginning) {
             e.removeSlide(e.previousIndex - 1);
             e.slideTo(activeIndex, 10, false);
@@ -56,16 +64,6 @@ export default class extends Carousel {
                 --activeIndex;
             }
           }
-
-          const activeSlide = e.slides[e.previousIndex]
-          const agreeButton = activeSlide.querySelector(".agree")
-          const csrfToken = document.querySelector("[name='csrf-token']").content
-          fetch(agreeButton.href, {
-            headers: {Accept: "application/json", "X-CSRF-Token": csrfToken},
-            method: "POST",
-          })
-
-
 
           if (!e.isEnd) {
             e.removeSlide(e.realIndex - 1);

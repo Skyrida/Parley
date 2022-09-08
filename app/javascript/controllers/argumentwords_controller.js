@@ -18,7 +18,7 @@ export default class extends Controller {
       this.descriptionOutputTarget.style.color = "red"
     } else {
       this.descriptionOutputTarget.innerHTML = `${descriptionInputLength} characters`
-      this.descriptionOutputTarget.style.color = "lightgray"
+      this.descriptionOutputTarget.style.color = "#81878C"
     }
   }
 }
