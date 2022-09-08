@@ -13,62 +13,64 @@
 
 </div>
 
-<div class="profilecard">
+<div class="main-container-block">
+  <div class="profilecard">
 
-<div class="d-flex">
-  <p class="leftside"><strong><em>First name:</em></strong></p>
-  <p class="rightside"><%= "#{current_user.first_name}" %></p>
-</div>
-
-
-<div class="d-flex">
-  <p class="leftside"><strong><em>Last name:</em></strong></p>
-  <p class="rightside"><%= "#{current_user.last_name}" %></p>
-</div>
-<div class="d-flex">
-  <p class="leftside"><strong><em>Location</em></strong></p>
-  <p class="rightside"><%= "#{current_user.location}" %></p>
-</div>
-
-
-<div class="d-flex">
-  <p class="leftside"><strong><em>Email:</em></strong></p>
-  <p class="rightside"><%= "#{current_user.email}" %></p>
-</div>
-
-
-<div class="d-flex">
-  <div class="user-interessts">
-   <p class="leftside"><strong><em>Interests:</em></strong></p>
-   <div class="intrest-tags">
-              <% current_user.tags.each do |tag_name| %>
-                    <div class="blue-tag">
-                      <p><%= tag_name  %></p>
-                    </div>
-                  <% end %>
-  </div>
-  </div>
+  <div class="d-flex">
+    <p class="leftside"><strong><em>First name:</em></strong></p>
+    <p class="rightside"><%= "#{current_user.first_name}" %></p>
   </div>
 
-  <div class="makeitcentered">
-  <button class="profile-button" type="submit" style="width: 120px;">Edit Profile</button>
-  <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "profile-button", style:"width: 120px;" %>
-</div>
+
+  <div class="d-flex">
+    <p class="leftside"><strong><em>Last name:</em></strong></p>
+    <p class="rightside"><%= "#{current_user.last_name}" %></p>
+  </div>
+  <div class="d-flex">
+    <p class="leftside"><strong><em>Location:</em></strong></p>
+    <p class="rightside"><%= "#{current_user.location}" %></p>
+  </div>
+
+
+  <div class="d-flex">
+    <p class="leftside"><strong><em>Email:</em></strong></p>
+    <p class="rightside"><%= "#{current_user.email}" %></p>
+  </div>
+
+
+  <div class="d-flex">
+    <div class="user-interessts">
+    <p class="leftside"><strong><em>Interests:</em></strong></p>
+    <div class="intrest-tags rightside">
+                <% current_user.tags.each do |tag_name| %>
+                      <div class="blue-tag">
+                        <p><%= tag_name  %></p>
+                      </div>
+                    <% end %>
+    </div>
+    </div>
+    </div>
+
+    <div class="makeitcentered">
+    <button class="profile-button" type="submit" style="width: 120px;">Edit Profile</button>
+    <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "profile-button", style:"width: 120px;" %>
+  </div>
+  </div>
 </div>
 
-<div class="firsth">
-  <H1><strong>Your debates</strong></H1>
-</div>
 
 <div data-controller="userdebatesearch" class="main-container-block">
-  <div class="profilesearch">
-    <div  data-userdebatesearch-target="searchbarform">
+  <div class="profilesearch" style="width:100%">
+    <div  data-userdebatesearch-target="searchbarform" style="width:100%">
       <%= form_with url: debates_path, data: { action: "keyup->userdebatesearch#searchFunction", userdebatesearch_target: "formQuery" } do |f| %>
         <%= f.text_field  :query, class: 'searchquery' , placeholder:"search your things..."  %>
       <% end %>
     </div>
   </div>
 <div class= "main-container-block"></div>
+<div class="firsth">
+  <H1><strong>Your debates</strong></H1>
+</div>
   <div data-userdebatesearch-target="debatesCards">
     <div class="yourdebates">
       <% current_user.your_debates.each do |debate| %>
@@ -85,8 +87,8 @@
                       <% end %>
                     </div>
                     <div class="debate-header-picture">
-                      <%= image_tag "blue-comment.png" %>
                       <%= debate.arguments.count %>
+                      <%= image_tag "blue-comment.png" %>
                     </div>
                   </div>
                   <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
@@ -107,8 +109,8 @@
                         <% end %>
                       </div>
                       <div class="debate-header-picture">
-                        <%= image_tag "blitz.png" %>
                         <%= debate.arguments.count %>
+                        <%= image_tag "blue-comment.png" %>
                       </div>
                     </div>
                     <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
@@ -139,8 +141,8 @@
                       <% end %>
                     </div>
                     <div class="debate-header-picture">
-                      <%= image_tag "blitz.png" %>
                       <%= debate.arguments.count %>
+                      <%= image_tag "blue-comment.png" %>
                     </div>
                   </div>
                   <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
@@ -161,8 +163,8 @@
                         <% end %>
                       </div>
                       <div class="debate-header-picture">
-                        <%= image_tag "blitz.png" %>
                         <%= debate.arguments.count %>
+                        <%= image_tag "blue-comment.png" %>
                       </div>
                     </div>
                     <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
@@ -193,8 +195,8 @@
                       <% end %>
                     </div>
                     <div class="debate-header-picture">
-                      <%= image_tag "blitz.png" %>
                       <%= debate.arguments.count %>
+                      <%= image_tag "blue-comment.png" %>
                     </div>
                   </div>
                   <h2 class="debate-card-title"><b><%= debate.title %></b></h2>
@@ -215,8 +217,8 @@
                         <% end %>
                       </div>
                       <div class="debate-header-picture">
-                        <%= image_tag "blitz.png" %>
                         <%= debate.arguments.count %>
+                        <%= image_tag "blue-comment.png" %>
                       </div>
                     </div>
                     <h2 class="debate-card-title"><b><%= debate.title %></b></h2>

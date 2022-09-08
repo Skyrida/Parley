@@ -5,13 +5,6 @@
 
 }
 
-.profilecard {
-
-justify-content: center;
-display: flex;
-
-}
-
 .profile-icon {
   border-radius: 50%;
   height: 160px;
@@ -74,12 +67,10 @@ fill: #1EA5FC;
 }
 
 .profilecard {
-
-  width: 330px;
+  width: 100%;
   height: auto;
   padding: 10px;
   margin-bottom: 15px;
-  margin-left: 30px;
   border-radius: 5px;
   border: 2px solid $custom-background;
   display: block;
