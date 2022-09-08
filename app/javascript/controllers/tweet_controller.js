@@ -14,20 +14,20 @@ export default class extends Controller {
     const titleInputLength = this.titleContentTarget.value.length
 
     if (titleInputLength > 100) {
-      this.titleOutputTarget.innerHTML = `${titleInputLength} characters: Too many!`
+      this.titleOutputTarget.innerHTML = `${titleInputLength} characters / 100: Too many!`
       this.titleOutputTarget.style.color = "red"
     } else {
-      this.titleOutputTarget.innerHTML = `${titleInputLength} characters`
+      this.titleOutputTarget.innerHTML = `${titleInputLength} characters / 100`
       this.titleOutputTarget.style.color = "#81878C"
     }
 
     const descriptionInputLength = this.descriptionContentTarget.value.length
 
     if (descriptionInputLength > 200) {
-      this.descriptionOutputTarget.innerHTML = `${descriptionInputLength} characters: Too many!`
+      this.descriptionOutputTarget.innerHTML = `${descriptionInputLength} characters / 200: Too many!`
       this.descriptionOutputTarget.style.color = "red"
     } else {
-      this.descriptionOutputTarget.innerHTML = `${descriptionInputLength} characters`
+      this.descriptionOutputTarget.innerHTML = `${descriptionInputLength} characters / 200`
       this.descriptionOutputTarget.style.color = "#81878C"
     }
   }

@@ -29,6 +29,28 @@ users = []
   users << user
 end
 
+vk = User.new(
+  first_name: "Viktor",
+  last_name: "Kovacs",
+  username: "ViKKo92",
+  location: "Budapest, Hungary",
+  gender: "Male",
+  email: "vk@gmail.com",
+  password: "123123"
+)
+vk.save!
+
+ar = User.new(
+  first_name: "Alex",
+  last_name: "Rico",
+  username: "BritishBlonde",
+  location: "Guernsey, UK",
+  gender: "Male",
+  email: "ar@gmail.com",
+  password: "123123"
+)
+ar.save!
+
 # debates = []
 # users.each do |user|
 #   3.times do
@@ -174,6 +196,57 @@ debate_content.each do |debate|
   debate.save!
   debates << debate
 end
+
+trump_debate = Debate.new({ title: "Trump was a better than average President.", user_id: User.last.id, tag_list: ["US Politics", "Trump"], description: "Does Trump deserve as much criticism as he continually receives?"})
+trump_debate.save!
+
+trump_argument_one = Argument.new(
+  content: "People joyfully jump on the bandwagon to dislike him, without necessarily knowing the reasons why they feel that way",
+  user_id: vk.id,
+  debate_id: trump_debate.id,
+  perspective_pro: true
+)
+trump_argument_one.save!
+
+trump_argument_two = Argument.new(
+  content: "The economy was in a good place under President Trump",
+  user_id: vk.id,
+  debate_id: trump_debate.id,
+  perspective_pro: true
+)
+trump_argument_two.save!
+
+trump_argument_three = Argument.new(
+  content: "The USA became an even more divisive place under his leadership, a divided nation is not a strong nation - and a President's job is to make a strong nation",
+  user_id: ar.id,
+  debate_id: trump_debate.id,
+  perspective_pro: false
+)
+trump_argument_three.save!
+
+trump_argument_four = Argument.new(
+  content: "MAGA was a slogan of pure genius, Trump took inspiration from Reagan and ran with it. Great leaders need to convince people, and Trump certainly was a good marketer",
+  user_id: vk.id,
+  debate_id: trump_debate.id,
+  perspective_pro: true
+)
+trump_argument_four.save!
+
+trump_argument_five = Argument.new(
+  content: "The symbol of the free world mocked a disabled person live at a rally - how was he fit to rule when he mocks his own people for issues out of their control. And then tries to remove their healthcare!",
+  user_id: ar.id,
+  debate_id: trump_debate.id,
+  perspective_pro: false
+)
+trump_argument_five.save!
+
+trump_argument_six = Argument.new(
+  content: "Indifferent of his actual policies, a demagogue politician never serves the best interest of the country",
+  user_id: vk.id,
+  debate_id: trump_debate.id,
+  perspective_pro: false
+)
+trump_argument_six.save!
 
 # debates.each do |debate|
 #   4.times do

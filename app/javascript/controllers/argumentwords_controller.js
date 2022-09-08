@@ -14,10 +14,10 @@ export default class extends Controller {
     const descriptionInputLength = this.descriptionContentTarget.value.length
 
     if (descriptionInputLength > 200) {
-      this.descriptionOutputTarget.innerHTML = `${descriptionInputLength} characters: Too many!`
+      this.descriptionOutputTarget.innerHTML = `${descriptionInputLength} characters / 200: Too many!`
       this.descriptionOutputTarget.style.color = "red"
     } else {
-      this.descriptionOutputTarget.innerHTML = `${descriptionInputLength} characters`
+      this.descriptionOutputTarget.innerHTML = `${descriptionInputLength} characters / 200`
       this.descriptionOutputTarget.style.color = "#81878C"
     }
   }
