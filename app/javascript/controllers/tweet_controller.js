@@ -18,7 +18,7 @@ export default class extends Controller {
       this.titleOutputTarget.style.color = "red"
     } else {
       this.titleOutputTarget.innerHTML = `${titleInputLength} characters`
-      this.titleOutputTarget.style.color = "lightgray"
+      this.titleOutputTarget.style.color = "#81878C"
     }
 
     const descriptionInputLength = this.descriptionContentTarget.value.length
@@ -28,7 +28,7 @@ export default class extends Controller {
       this.descriptionOutputTarget.style.color = "red"
     } else {
       this.descriptionOutputTarget.innerHTML = `${descriptionInputLength} characters`
-      this.descriptionOutputTarget.style.color = "lightgray"
+      this.descriptionOutputTarget.style.color = "#81878C"
     }
   }
 }

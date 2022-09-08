@@ -12,19 +12,23 @@
   <div data-controller="swiper" class="swiper-container" style="overflow:hidden">
     <div class="swiper-wrapper">
       <% @arguments.each do |argument| %>
-        <div class= "swiper-slide swiper-card <%=["swiper-card-1", "swiper-card-2", "swiper-card-3", "swiper-card-4", "swiper-card-5", "swiper-card-6"].sample%>" >
-          <p><%= argument.content %></p>
-          <div class="debate-procon-container">
-            <div class="button-disagree">Disagree</div>
-            <%= link_to argument_comment_swipe_users_path(argument), data: { turbo_method: :post }, class:"agree" do%>
-              <div class="button-agree">Agree</div>
+        <div class="swiper-slide swiper-card-container">
+          <div class= "swiper-card <%=["swiper-card-1", "swiper-card-2", "swiper-card-3", "swiper-card-4", "swiper-card-5", "swiper-card-6"].sample%>" >
+            <%= link_to argument_comment_swipe_users_path(argument), data: { turbo_method: :post }, class:"agree", style:"text-decoration:none" do %>
+              <p style="color:#031827 !important"><%= argument.content %></p>
             <% end %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
+</div>
+<div class="swipe-button-section">
+  <div class="swipe-procon">
+    <div class="button-disagree" style="width:47.5%">Disagree</div>
+    <div class="button-agree" style="width:47.5%">Agree</div>
+  </div>
   <div class="debate-adddebate-container">
-    <%= link_to "Continue to the debate", debate_path(@arguments.first.debate_id), class: "button-secondary" %>
+    <%= link_to "Continue to the debate", debate_path(@arguments.first.debate_id), class: "button-secondary", style: "width:100%" %>
   </div>
 </div>
