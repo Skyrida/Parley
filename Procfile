@@ -1,2 +1,2 @@
-web: bin/rails server -p 3000
+web: process.env.PORT
 js: yarn build --watch
