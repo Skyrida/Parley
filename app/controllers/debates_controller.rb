@@ -1,4 +1,4 @@
-require_relative '../services/twitter_api_service'
+# require_relative '../services/twitter_api_service'
 
 class DebatesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
