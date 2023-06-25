@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: postgres
+  database: Parley_production
   username: Parley
   password: <%= ENV["PARLEY_DATABASE_PASSWORD"] %>
